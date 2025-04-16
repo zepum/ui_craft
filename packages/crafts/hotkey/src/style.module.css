@@ -1,0 +1,6 @@
+@import "../../../core/theme/color.css";
+
+
+.title {
+    color: var(--black);
+}

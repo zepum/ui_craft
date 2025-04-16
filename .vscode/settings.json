@@ -1,0 +1,5 @@
+{
+    "tsxDefinitionFilter.remove": [   
+        "**/*/css-module.d.ts"
+    ],
+} 

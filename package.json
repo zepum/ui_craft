@@ -1,0 +1,22 @@
+{
+  "name": "ui_craft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsup ./packages/crafts/hotkey/src --dts",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  }
+}
