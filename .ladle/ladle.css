@@ -1,0 +1,4 @@
+/* ladle 기본 UI 커스텀용  */
+.ladle-wrapper {
+    flex-direction: row-reverse;
+}
