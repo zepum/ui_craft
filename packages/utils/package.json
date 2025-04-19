@@ -1,22 +1,22 @@
 {
-    "name": "@utils",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "build": "tsup src --dts",
-        "dev": "pnpm build:fast --watch",
-        "clean": "rimraf dist .turbo",
-        "typecheck": "tsc --noEmit",
-        "build:fast": "tsup src",
-        "prepack": "clean-package",
-        "postpack": "clean-package restore"
-    },
-    "peerDependencies": {
-        "react": ">=18 || >=19.0.0-rc.0",
-        "react-dom": ">=18 || >=19.0.0-rc.0"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC"
+  "name": "@utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -1,26 +1,28 @@
 {
-    "name": "ui_craft",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "build": "tsup ./packages/crafts/hotkey/src --dts",
-        "dev": "pnpm ladle serve",
-        "clean": "rimraf dist .turbo",
-        "typecheck": "tsc --noEmit",
-        "build:fast": "tsup src",
-        "prepack": "clean-package",
-        "postpack": "clean-package restore"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@biomejs/biome": "^1.9.4",
-        "tsup": "^8.4.0",
-        "typescript": "^5.8.3",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "@ladle/react": "^5.0.2"
-    }
+  "name": "ui_craft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "pnpm ladle serve",
+    "test": "turbo run test",
+    "clean": "turbo run clean",
+    "format": "biome format --write .",
+    "check": "biome check .",
+    "ts-check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@ladle/react": "^5.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsup": "^8.4.0",
+    "turbo": "^2.5.0",
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "pnpm@9.6.0"
 }

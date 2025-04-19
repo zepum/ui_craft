@@ -3,10 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "module": "NodeNext",
-    "moduleResolution": "node16", // or "bundler" depending on your environment
-    "paths": {
-      "@core/*": ["../../core/*"]
-    }
+    "moduleResolution": "node16"
   },
   "include": ["src", "index.ts", "../../../css-module.d.ts"]
 }
