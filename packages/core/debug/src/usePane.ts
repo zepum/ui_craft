@@ -8,6 +8,30 @@ type PaneProps = PaneConfig & {
   draggable?: boolean;
 };
 
+/**
+ * @description
+ * 디버그 설정을 위한 패널을 생성
+ * https://tweakpane.github.io/docs/
+ *
+ * @example
+ * ```tsx
+ * const pane = usePane();
+ * useEffect(() => {
+ *   const PARAMS = {
+ *     speed: 50,
+ *   }
+ *   const pane = new Pane();
+ *   pane.addBinding(PARAMS, 'speed', {
+ *     min: 0,
+ *     max: 100,
+ *   });
+ *  return () => {
+ *      pane.dispose();
+ *  }
+ * }, [pane]);
+ *
+ * ```
+ */
 export const usePane = ({ paneId, draggable = true, ...config }: PaneProps) => {
   const [pane, setPane] = useState<Pane | null>(null);
 
