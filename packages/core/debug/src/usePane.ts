@@ -32,7 +32,7 @@ type PaneProps = PaneConfig & {
  *
  * ```
  */
-export const usePane = ({ paneId, draggable = true, ...config }: PaneProps) => {
+export const usePane = ({ paneId, draggable = true, ...config }: PaneProps): Pane | null => {
   const [pane, setPane] = useState<Pane | null>(null);
 
   useEffect(() => {

@@ -17,6 +17,7 @@
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "devDependencies": {
+    "@tweakpane/core": "^2.0.5",
     "tweakpane": "^4.0.5"
   },
   "keywords": [],
