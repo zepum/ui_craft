@@ -1,4 +1,4 @@
-import * as styles from './style.module.css';
+import styles from './styles/style.module.css';
 import { usePane } from '@core/debug';
 
 export const Test = () => {
@@ -6,5 +6,5 @@ export const Test = () => {
     title: 'Hotkey',
   });
 
-  return <h1 className={''}>하이</h1>;
+  return <h1 className={styles.title}>하이</h1>;
 };

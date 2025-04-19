@@ -16,7 +16,8 @@
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "type": "tsc --emitDeclarationOnly --outDir dist"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
