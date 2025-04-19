@@ -13,7 +13,7 @@ importers:
         version: 1.9.4
       '@ladle/react':
         specifier: ^5.0.2
-        version: 5.0.2(@types/react@19.1.2)(acorn@8.14.1)(react-dom@18.3.1)(react@18.3.1)(typescript@5.8.3)
+        version: 5.0.2(@types/react@19.1.2)(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -22,10 +22,16 @@ importers:
         version: 18.3.1(react@18.3.1)
       tsup:
         specifier: ^8.4.0
-        version: 8.4.0(typescript@5.8.3)
+        version: 8.4.0(@swc/core@1.11.21)(postcss@8.5.3)(typescript@5.8.3)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
+
+  packages/crafts/hotkey:
+    devDependencies:
+      tweakpane:
+        specifier: ^4.0.5
+        version: 4.0.5
 
 packages:
 
@@ -1937,6 +1943,9 @@ packages:
       typescript:
         optional: true
 
+  tweakpane@4.0.5:
+    resolution: {integrity: sha512-rxEXdSI+ArlG1RyO6FghC4ZUX8JkEfz8F3v1JuteXSV0pEtHJzyo07fcDG+NsJfN5L39kSbCYbB9cBGHyuI/tQ==}
+
   type-fest@0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
@@ -2403,12 +2412,12 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@ladle/react-context@1.0.1(react-dom@18.3.1)(react@18.3.1)':
+  '@ladle/react-context@1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@ladle/react@5.0.2(@types/react@19.1.2)(acorn@8.14.1)(react-dom@18.3.1)(react@18.3.1)(typescript@5.8.3)':
+  '@ladle/react@5.0.2(@types/react@19.1.2)(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)':
     dependencies:
       '@babel/code-frame': 7.26.2
       '@babel/core': 7.26.10
@@ -2417,7 +2426,7 @@ snapshots:
       '@babel/template': 7.27.0
       '@babel/traverse': 7.27.0
       '@babel/types': 7.27.0
-      '@ladle/react-context': 1.0.1(react-dom@18.3.1)(react@18.3.1)
+      '@ladle/react-context': 1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mdx-js/mdx': 3.1.0(acorn@8.14.1)
       '@mdx-js/react': 3.1.0(@types/react@19.1.2)(react@18.3.1)
       '@vitejs/plugin-react': 4.4.0(vite@6.3.1)
@@ -2442,7 +2451,7 @@ snapshots:
       query-string: 9.1.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-hotkeys-hook: 4.6.2(react-dom@18.3.1)(react@18.3.1)
+      react-hotkeys-hook: 4.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-inspector: 6.0.2(react@18.3.1)
       rehype-class-names: 2.0.0
       rehype-raw: 7.0.0
@@ -3066,7 +3075,7 @@ snapshots:
       reusify: 1.1.0
 
   fdir@6.4.3(picomatch@4.0.2):
-    dependencies:
+    optionalDependencies:
       picomatch: 4.0.2
 
   fill-range@7.1.1:
@@ -3908,8 +3917,9 @@ snapshots:
       picocolors: 1.1.1
       strict-event-emitter: 0.5.1
       type-fest: 4.40.0
-      typescript: 5.8.3
       yargs: 17.7.2
+    optionalDependencies:
+      typescript: 5.8.3
     transitivePeerDependencies:
       - '@types/node'
 
@@ -3985,9 +3995,11 @@ snapshots:
 
   pirates@4.0.7: {}
 
-  postcss-load-config@6.0.1:
+  postcss-load-config@6.0.1(postcss@8.5.3):
     dependencies:
       lilconfig: 3.1.3
+    optionalDependencies:
+      postcss: 8.5.3
 
   postcss@8.5.3:
     dependencies:
@@ -4033,7 +4045,7 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-hotkeys-hook@4.6.2(react-dom@18.3.1)(react@18.3.1):
+  react-hotkeys-hook@4.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -4320,12 +4332,12 @@ snapshots:
   ts-interface-checker@0.1.13: {}
 
   tsconfck@3.1.5(typescript@5.8.3):
-    dependencies:
+    optionalDependencies:
       typescript: 5.8.3
 
   tsscmp@1.0.6: {}
 
-  tsup@8.4.0(typescript@5.8.3):
+  tsup@8.4.0(@swc/core@1.11.21)(postcss@8.5.3)(typescript@5.8.3):
     dependencies:
       bundle-require: 5.1.0(esbuild@0.25.2)
       cac: 6.7.14
@@ -4335,7 +4347,7 @@ snapshots:
       esbuild: 0.25.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1
+      postcss-load-config: 6.0.1(postcss@8.5.3)
       resolve-from: 5.0.0
       rollup: 4.40.0
       source-map: 0.8.0-beta.0
@@ -4343,12 +4355,17 @@ snapshots:
       tinyexec: 0.3.2
       tinyglobby: 0.2.12
       tree-kill: 1.2.2
+    optionalDependencies:
+      '@swc/core': 1.11.21
+      postcss: 8.5.3
       typescript: 5.8.3
     transitivePeerDependencies:
       - jiti
       - supports-color
       - tsx
       - yaml
+
+  tweakpane@4.0.5: {}
 
   type-fest@0.21.3: {}
 
@@ -4435,6 +4452,7 @@ snapshots:
       debug: 4.4.0
       globrex: 0.1.2
       tsconfck: 3.1.5(typescript@5.8.3)
+    optionalDependencies:
       vite: 6.3.1
     transitivePeerDependencies:
       - supports-color

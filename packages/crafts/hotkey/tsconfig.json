@@ -3,6 +3,5 @@
     "compilerOptions": {
       "baseUrl": ".",
     },
-    // "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "include": ["src", "index.ts", "../../../css-module.d.ts"]
   } 

@@ -2,7 +2,7 @@
     "name": "@craft/hotkey",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js", 
+    "main": "index.js",
     "scripts": {
         "build": "tsup src --dts",
         "dev": "pnpm build:fast --watch",
@@ -17,7 +17,7 @@
         "react-dom": ">=18 || >=19.0.0-rc.0"
     },
     "devDependencies": {
-        "typescript-plugin-css-modules": "^5.1.0"
+        "tweakpane": "^4.0.5"
     },
     "keywords": [],
     "author": "",
