@@ -2,7 +2,13 @@
   "name": "@core/debug",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    }
+  },
   "scripts": {
     "build": "tsup src --dts",
     "dev": "pnpm build:fast --watch",
@@ -16,9 +22,11 @@
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
-  "devDependencies": {
-    "@tweakpane/core": "^2.0.5",
+  "dependencies": {
     "tweakpane": "^4.0.5"
+  },
+  "devDependencies": {
+    "@tweakpane/core": "^2.0.5"
   },
   "keywords": [],
   "author": "",
