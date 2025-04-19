@@ -1,5 +1,5 @@
 {
-    "name": "@craft/hotkey",
+    "name": "@utils",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -15,9 +15,6 @@
     "peerDependencies": {
         "react": ">=18 || >=19.0.0-rc.0",
         "react-dom": ">=18 || >=19.0.0-rc.0"
-    },
-    "devDependencies": {
-        "@core/debug": "workspace:*"
     },
     "keywords": [],
     "author": "",

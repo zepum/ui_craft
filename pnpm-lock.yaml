@@ -27,11 +27,43 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
 
-  packages/crafts/hotkey:
+  packages/core/debug:
+    dependencies:
+      react:
+        specifier: '>=18 || >=19.0.0-rc.0'
+        version: 18.3.1
+      react-dom:
+        specifier: '>=18 || >=19.0.0-rc.0'
+        version: 18.3.1(react@18.3.1)
     devDependencies:
       tweakpane:
         specifier: ^4.0.5
         version: 4.0.5
+      usehooks-ts:
+        specifier: ^3.1.1
+        version: 3.1.1(react@18.3.1)
+
+  packages/crafts/hotkey:
+    dependencies:
+      react:
+        specifier: '>=18 || >=19.0.0-rc.0'
+        version: 18.3.1
+      react-dom:
+        specifier: '>=18 || >=19.0.0-rc.0'
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@core/debug':
+        specifier: workspace:*
+        version: link:../../core/debug
+
+  packages/utils:
+    dependencies:
+      react:
+        specifier: '>=18 || >=19.0.0-rc.0'
+        version: 18.3.1
+      react-dom:
+        specifier: '>=18 || >=19.0.0-rc.0'
+        version: 18.3.1(react@18.3.1)
 
 packages:
 
@@ -1314,6 +1346,9 @@ packages:
     resolution: {integrity: sha512-IXO6OCs9yg8tMKzfPZ1YmheJbZCiEsnBdcB03l0OcfK9prKnJb96siuHCr5Fl37/yo9DnKU+TLpxzTUspw9shg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
+  lodash.debounce@4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
@@ -2000,6 +2035,12 @@ packages:
 
   url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
+
+  usehooks-ts@3.1.1:
+    resolution: {integrity: sha512-I4diPp9Cq6ieSUH2wu+fDAVQO43xwtulo+fKEidHUwZPnYImbtkTjzIJYcDcJqxgmX31GVqNFURodvcgHcW0pA==}
+    engines: {node: '>=16.15.0'}
+    peerDependencies:
+      react: ^16.8.0  || ^17 || ^18 || ^19 || ^19.0.0-rc
 
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
@@ -3426,6 +3467,8 @@ snapshots:
 
   load-tsconfig@0.2.5: {}
 
+  lodash.debounce@4.0.8: {}
+
   lodash.merge@4.6.2: {}
 
   lodash.sortby@4.7.0: {}
@@ -4429,6 +4472,11 @@ snapshots:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+
+  usehooks-ts@3.1.1(react@18.3.1):
+    dependencies:
+      lodash.debounce: 4.0.8
+      react: 18.3.1
 
   vary@1.1.2: {}
 
