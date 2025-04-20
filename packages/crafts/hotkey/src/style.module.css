@@ -1,0 +1,6 @@
+@import "../../../core/theme/color.css";
+
+.title {
+  color: var(--foreground);
+  font-size: 20px;
+}

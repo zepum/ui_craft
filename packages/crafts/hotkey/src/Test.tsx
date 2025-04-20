@@ -1,10 +1,6 @@
-import styles from './styles/style.module.css';
 import { usePane } from '@core/debug';
+import styles from './style.module.css';
 
 export const Test = () => {
-  const pane = usePane({
-    title: 'Hotkey',
-  });
-
-  return <h1 className={styles.title}>하이</h1>;
+  return <h1 className={styles.title}>하루이</h1>;
 };
