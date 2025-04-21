@@ -1,5 +1,5 @@
 {
-  "name": "@craft/excel",
+  "name": "@craft/tanos-input",
   "version": "1.0.0",
   "description": "",
   "files": ["dist"],
@@ -23,9 +23,7 @@
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
-  "dependencies": {
-    "xlsx": "^0.18.5"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@core/debug": "workspace:*",
     "@types/react": "18.3.1",

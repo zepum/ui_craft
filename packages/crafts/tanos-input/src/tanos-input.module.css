@@ -1,0 +1,106 @@
+@import url("../../../core/theme/color.css");
+@import url("../../../core/theme/reset.css");
+
+.container {
+  position: relative;
+  display: flex;
+  height: 2.25rem; /* h-9 (9 * 0.25rem = 2.25rem) */
+  width: 100%;
+  border-radius: 0.375rem; /* rounded-md */
+  border: 1px solid var(--input); /* border border-input */
+  background-color: transparent; /* bg-transparent */
+  padding-left: 0.75rem; /* px-3 */
+  padding-right: 0.75rem; /* px-3 */
+  padding-top: 0.25rem; /* py-1 */
+  padding-bottom: 0.25rem; /* py-1 */
+  font-size: 1rem; /* text-base */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  color: var(--foreground);
+
+  &:has(input:focus-visible) {
+    outline: none;
+    box-shadow: 0 0 0 1px var(--ring); /* focus-visible:ring-1 focus-visible:ring-ring */
+  }
+
+  &:has(input:disabled) {
+    cursor: not-allowed; /* disabled:cursor-not-allowed */
+    opacity: 0.5; /* disabled:opacity-50 */
+  }
+}
+
+.input {
+  display: flex;
+  width: 100%;
+  border: none;
+  background-color: transparent; /* bg-transparent */
+  font-size: 1rem; /* text-base */
+  color: var(--foreground);
+  padding: 0;
+}
+
+.input::placeholder {
+  color: var(--muted-foreground); /* placeholder:text-muted-foreground */
+}
+
+@media (min-width: 768px) {
+  .input {
+    font-size: 0.875rem; /* md:text-sm */
+  }
+}
+
+/* min 0, max 150 */
+@property --progress {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: true;
+}
+
+.fe {
+  height: 100%;
+  backdrop-filter: url(#top-filter);
+}
+
+.animate {
+  animation: startProgress 1s linear forwards;
+}
+
+@keyframes startProgress {
+  from {
+    --progress: 0%;
+  }
+  to {
+    --progress: 150%;
+  }
+}
+
+/* 마스크 적용 텍스트 스타일 */
+.masked-text {
+  /* opacity: 0; */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent clamp(0%, var(--progress), 100%),
+    black clamp(0%, var(--progress), 100%),
+    black 100%
+  );
+}
+
+.overlay {
+  padding-left: 0.75rem; /* px-3 */
+  padding-right: 0.75rem; /* px-3 */
+  padding-top: 0.25rem; /* py-1 */
+  padding-bottom: 0.25rem; /* py-1 */
+  height: 100%;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent calc(var(--progress) - 50%),
+    rgba(0, 0, 0, 0.4) calc(var(--progress) - 30%),
+    black var(--progress),
+    transparent var(--progress),
+    transparent 100%
+  );
+
+  filter: url(#bottom-filter);
+}
