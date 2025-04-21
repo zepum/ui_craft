@@ -1,0 +1,37 @@
+{
+  "name": "@craft/excel",
+  "version": "1.0.0",
+  "description": "",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup --dts",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "type": "tsc --emitDeclarationOnly --outDir dist"
+  },
+  "peerDependencies": {
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@core/debug": "workspace:*",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
