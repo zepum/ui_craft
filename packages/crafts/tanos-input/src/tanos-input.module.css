@@ -38,6 +38,14 @@
   padding: 0;
 }
 
+.input:focus {
+  outline: none;
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
 .input::placeholder {
   color: var(--muted-foreground); /* placeholder:text-muted-foreground */
 }
@@ -49,15 +57,10 @@
 }
 
 /* min 0, max 150 */
-@property --progress {
+@property --tanos-progress {
   syntax: "<percentage>";
   initial-value: 0%;
   inherits: true;
-}
-
-.fe {
-  height: 100%;
-  backdrop-filter: url(#top-filter);
 }
 
 .animate {
@@ -66,10 +69,10 @@
 
 @keyframes startProgress {
   from {
-    --progress: 0%;
+    --tanos-progress: 0%;
   }
   to {
-    --progress: 150%;
+    --tanos-progress: 150%;
   }
 }
 
@@ -79,8 +82,8 @@
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    transparent clamp(0%, var(--progress), 100%),
-    black clamp(0%, var(--progress), 100%),
+    transparent clamp(0%, var(--tanos-progress), 100%),
+    black clamp(0%, var(--tanos-progress), 100%),
     black 100%
   );
 }
@@ -95,10 +98,10 @@
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    transparent calc(var(--progress) - 50%),
-    rgba(0, 0, 0, 0.4) calc(var(--progress) - 30%),
-    black var(--progress),
-    transparent var(--progress),
+    transparent calc(var(--tanos-progress) - 50%),
+    rgba(0, 0, 0, 0.4) calc(var(--tanos-progress) - 30%),
+    black var(--tanos-progress),
+    transparent var(--tanos-progress),
     transparent 100%
   );
 

@@ -12,6 +12,9 @@
       "recommended": true,
       "correctness": {
         "useExhaustiveDependencies": "warn"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "off"
       }
     }
   },
