@@ -1,0 +1,37 @@
+.marqueeContainer {
+  display: flex;
+  width: 250px;
+  padding-block: 20px;
+  outline: 1px solid blue;
+  overflow: visible;
+
+  & > * {
+    flex-shrink: 0;
+  }
+}
+
+.marqueeItem {
+  /* position: absolute; */
+  width: 100px;
+  /* background: linear-gradient(to right, #000, #fff); */
+  height: 100px;
+  border: 1px solid red;
+  --speed: 5;
+
+  --origin-x: calc((var(--count) - var(--idx)) * 100%);
+  --origin-y: 0;
+  --destination-x: calc(calc((var(--idx) + 1) * -100%));
+  --destination-y: 0;
+  --duration: calc(var(--speed) * 1s);
+  --delay: calc((var(--duration) / var(--count)) * (var(--idx) - var(--count) * 0.5));
+  translate: var(--origin-x) var(--origin-y);
+  animation: marqueeFlow linear infinite;
+  animation-duration: var(--duration);
+  animation-delay: var(--delay);
+}
+
+@keyframes marqueeFlow {
+  to {
+    translate: var(--destination-x) var(--destination-y);
+  }
+}
