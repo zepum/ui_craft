@@ -27,7 +27,7 @@
   translate: var(--origin-x) var(--origin-y);
   animation: marqueeFlow linear infinite;
   animation-duration: var(--duration);
-  animation-delay: var(--delay);
+  animation-delay: calc(var(--delay));
 }
 
 @keyframes marqueeFlow {

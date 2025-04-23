@@ -21,10 +21,19 @@ export const TanosProvider = ({ children }: { children: React.ReactNode }) => {
   return <TanosContext.Provider value={{ startAnimationRef }}>{children}</TanosContext.Provider>;
 };
 
-export const TanosTrigger = ({ children }: { children: React.ReactNode }) => {
+export const TanosTrigger = ({
+  children,
+  tanosWhenClick = true,
+}: { children: React.ReactNode; tanosWhenClick?: boolean }) => {
   const { startAnimationRef } = useTanos();
 
-  return <div onClick={() => startAnimationRef.current?.()}>{children}</div>;
+  const handleClick = () => {
+    if (tanosWhenClick) {
+      startAnimationRef.current?.();
+    }
+  };
+
+  return <div onClick={handleClick}>{children}</div>;
 };
 
 export const TanosInput = React.forwardRef<HTMLInputElement, TanosInputProps>((props, ref) => {
@@ -52,12 +61,9 @@ export const TanosInput = React.forwardRef<HTMLInputElement, TanosInputProps>((p
     <label
       ref={labelRef}
       htmlFor={id}
-      className={`${styles.container} ${styles.animate}`}
+      className={`${styles.container}`}
       onAnimationEnd={() => {
-        props.setValue?.('');
-        setTimeout(() => {
-          resetAni();
-        }, 50);
+        resetAni();
       }}
     >
       <input id={id} className={`${styles.input} ${styles['masked-text']}`} ref={ref} {...inputProps} />

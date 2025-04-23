@@ -3,8 +3,11 @@ import { TanosInput, TanosProvider, TanosTrigger } from '../src/TanosInput';
 import { useState } from 'react';
 import './TanosInput.stories.css';
 
-export const Basic: Story = () => {
-  const [value, setValue] = useState('우뿌ㅜ뿌뿌뿌ㅜ뻐ㅏㅣ우아ㅣ런이ㅓㄹ');
+const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+export const DEFAULT: Story = () => {
+  const [value, setValue] = useState('tanos_effect@avenue.com');
+
   return (
     <TanosProvider>
       <div className='container'>
