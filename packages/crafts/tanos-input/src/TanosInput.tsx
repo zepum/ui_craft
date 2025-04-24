@@ -1,5 +1,5 @@
-import React, { useEffect, useId, useImperativeHandle, useRef } from 'react';
-import styles from './tanos-input.module.css';
+import React, { useId, useImperativeHandle, useRef } from 'react';
+import styles from './TanosInput.module.css';
 
 type TanosInputProps = React.ComponentProps<'input'> & {
   setValue?: (value: string) => void;
