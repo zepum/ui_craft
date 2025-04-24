@@ -1,13 +1,78 @@
 import styles from './SVG.module.css';
+import { useEffect, useState } from 'react';
+import { usePane } from '@core/debug';
 
-const SHAPE_PRESET = ['circle', 'square', 'triangle', 'heart', 'polygon'];
+const SHAPE_PRESET = ['circle', 'square', 'triangle'] as const;
+type Shape = (typeof SHAPE_PRESET)[number];
 
-export const Svg = () => {
-  return <SVGFactory shape='heart' />;
-};
+export const Svg = ({
+  shape,
+  stroke,
+  gradient,
+  animate,
+}: {
+  shape: Shape;
+  stroke?: string;
+  gradient?: string;
+  animate?: boolean;
+}) => {
+  const [__DBG_storke, setStroke] = useState(stroke ?? '#000');
+  const [__DBG_shape, setShape] = useState<Shape>(shape);
+  const [__DBG_gradient, setGradient] = useState(gradient ?? 'url(#horizontal-gradient)');
+  const [__DBG_strokeAnimationActive, setStrokeAnimationActive] = useState(animate ?? false);
+  const pane = usePane({
+    title: 'DEBUGGER',
+  });
 
-// 각 모양에 따른 path 를 새로운 defs 안에 <g></g> 로 묶고, switch 문을 없애고 use 를 사용하기
-const SVGFactory = ({ shape }: { shape: string }) => {
+  useEffect(() => {
+    if (!pane) {
+      return;
+    }
+
+    const initialConfig = {
+      stroke: '#000',
+      shape: shape,
+      gradient: 'url(#horizontal-gradient)',
+      animate: false,
+    };
+
+    pane.addBinding(initialConfig, 'stroke').on('change', ({ value }) => {
+      setStroke(value);
+    });
+    pane
+      .addBinding(initialConfig, 'shape', {
+        options: {
+          circle: 'circle',
+          square: 'square',
+          triangle: 'triangle',
+        },
+      })
+      .on('change', ({ value }) => {
+        setShape(value);
+      });
+
+    pane
+      .addBinding(initialConfig, 'gradient', {
+        options: {
+          horizontal: 'url(#horizontal-gradient)',
+          vertical: 'url(#vertical-gradient)',
+        },
+      })
+      .on('change', ({ value }) => {
+        setGradient(value);
+      });
+
+    pane.addBinding(initialConfig, 'animate').on('change', ({ value }) => {
+      setStrokeAnimationActive(value);
+    });
+
+    return () => {
+      if (pane) {
+        pane.dispose();
+      }
+    };
+  }, [pane]);
+
   return (
     <svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
       <defs>
@@ -20,36 +85,24 @@ const SVGFactory = ({ shape }: { shape: string }) => {
           <stop stopColor={'#DBD5A4'} offset='100%' />
         </linearGradient>
       </defs>
-
-      {(() => {
-        switch (shape) {
-          case 'circle':
-            return <circle cx='100' cy='100' r='40' fill='url(#horizontal-gradient)' />;
-          case 'square':
-            return <rect x='50' y='50' width='100' height='100' fill='url(#horizontal-gradient)' />;
-          case 'triangle':
-            return <polygon points='100 30, 50 130, 150 130' fill='url(#horizontal-gradient)' />;
-          case 'heart':
-            return (
-              <path
-                d='M 0 200 v -200 h 200 a 100 100 90 0 1 0 200 a 100 100 90 0 1 -200 0 Z'
-                fill='url(#horizontal-gradient)'
-              />
-            );
-          case 'polygon':
-            return <polygon points='100 0, 0 100, 200 100' fill='url(#horizontal-gradient)' />;
-          default:
-            return (
-              <text
-                x='10'
-                y='30'
-                fill='url(#horizontal-gradient)'
-                fontSize='12'
-                fontWeight='bold'
-              >{`⚠️ No Matched shape: ${shape} ⚠️`}</text>
-            );
-        }
-      })()}
+      <defs>
+        <g id='circle'>
+          <circle cx='100' cy='100' r='40' />
+        </g>
+        <g id='square'>
+          <rect x='50' y='50' width='80' height='80' />
+        </g>
+        <g id='triangle'>
+          <polygon points='100 30, 50 130, 150 130' />
+        </g>
+      </defs>
+      <use
+        className={__DBG_strokeAnimationActive ? styles.strokeAnimate : ''}
+        href={`#${__DBG_shape}`}
+        stroke-dasharray={[4]}
+        stroke={__DBG_storke}
+        fill={__DBG_gradient}
+      />
     </svg>
   );
 };

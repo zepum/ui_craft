@@ -1,0 +1,12 @@
+.strokeAnimate {
+  animation: stroke-animation 500s linear forwards infinite;
+}
+
+@keyframes stroke-animation {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 10000;
+  }
+}

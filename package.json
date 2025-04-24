@@ -10,7 +10,8 @@
     "clean": "turbo run clean",
     "format": "biome format --write .",
     "check": "biome check .",
-    "ts-check": "tsc --noEmit"
+    "ts-check": "tsc --noEmit",
+    "build:story": "pnpm build && pnpm ladle build"
   },
   "keywords": [],
   "author": "",
