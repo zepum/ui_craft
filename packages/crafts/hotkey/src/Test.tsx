@@ -1,4 +1,3 @@
-import { usePane } from '@core/debug';
 import styles from './style.module.css';
 
 export const Test = () => {

@@ -7,11 +7,11 @@
     "build": "turbo run build",
     "dev": "pnpm ladle serve",
     "test": "turbo run test",
-    "clean": "turbo run clean",
+    "clean": "turbo run clean && rimraf build",
     "format": "biome format --write .",
     "check": "biome check .",
     "ts-check": "tsc --noEmit",
-    "build:story": "pnpm build && pnpm ladle build"
+    "build:story": "turbo run build && pnpm ladle build"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "@ladle/react": "^5.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "rimraf": "^6.0.1",
     "tsup": "^8.4.0",
     "turbo": "^2.5.0",
     "typescript": "^5.8.3"

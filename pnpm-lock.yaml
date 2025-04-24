@@ -13,16 +13,19 @@ importers:
         version: 1.9.4
       '@ladle/react':
         specifier: ^5.0.2
-        version: 5.0.2(@types/react@18.3.1)(acorn@8.14.1)(react-dom@18.3.1)(react@18.3.1)(typescript@5.8.3)
+        version: 5.0.2(@types/react@18.3.1)(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
       react:
         specifier: ^18.3.1
         version: 18.3.1
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       tsup:
         specifier: ^8.4.0
-        version: 8.4.0(typescript@5.8.3)
+        version: 8.4.0(@swc/core@1.11.21)(postcss@8.5.3)(typescript@5.8.3)
       turbo:
         specifier: ^2.5.0
         version: 2.5.1
@@ -1218,6 +1221,11 @@ packages:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
     hasBin: true
 
+  glob@11.0.2:
+    resolution: {integrity: sha512-YT7U7Vye+t5fZ/QMkBFrTJ7ZQxInIUjwyAjVj84CYXqgBdv30MFUPGnBR6sQaVq6Is15wYJUsnzTuWaGRBhBAQ==}
+    engines: {node: 20 || >=22}
+    hasBin: true
+
   globals@11.12.0:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
     engines: {node: '>=4'}
@@ -1375,6 +1383,10 @@ packages:
   jackspeak@3.4.3:
     resolution: {integrity: sha512-OGlZQpz2yfahA/Rd1Y8Cd9SIEsqvXkLVoSw/cgwhnhFMDbsQFeZYoJJ7bIZBS9BcamUW96asq/npPWugM+RQBw==}
 
+  jackspeak@4.1.0:
+    resolution: {integrity: sha512-9DDdhb5j6cpeitCbvLO7n7J4IxnbM6hoF6O1g4HQ5TfhvvKN8ywDM7668ZhMHRqVmxqhps/F6syWK2KcPxYlkw==}
+    engines: {node: 20 || >=22}
+
   joycon@3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
     engines: {node: '>=10'}
@@ -1436,6 +1448,10 @@ packages:
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
+
+  lru-cache@11.1.0:
+    resolution: {integrity: sha512-QIXZUBJUx+2zHUdQujWejBkcD9+cs94tLn0+YL8UrCh+D5sCXZ4c7LaEH48pNwRY3MLDgqUFyhlCyjJPf1WP0A==}
+    engines: {node: 20 || >=22}
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
@@ -1624,6 +1640,10 @@ packages:
     resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
     engines: {node: '>= 0.6'}
 
+  minimatch@10.0.1:
+    resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
+    engines: {node: 20 || >=22}
+
   minimatch@9.0.5:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -1705,6 +1725,10 @@ packages:
   path-scurry@1.11.1:
     resolution: {integrity: sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==}
     engines: {node: '>=16 || 14 >=14.18'}
+
+  path-scurry@2.0.0:
+    resolution: {integrity: sha512-ypGJsmGtdXUOeM5u93TyeIEfEhM6s+ljAhrk5vAvSx8uyY/02OvrZnA0YNGUrPXfpJMgI1ODd3nwz8Npx4O4cg==}
+    engines: {node: 20 || >=22}
 
   path-to-regexp@6.3.0:
     resolution: {integrity: sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==}
@@ -1865,6 +1889,11 @@ packages:
   reusify@1.1.0:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
+
+  rimraf@6.0.1:
+    resolution: {integrity: sha512-9dkvaxAsk/xNXSJzMgFqqMCuFgt2+KsOFek3TMLfo8NCPfWpBmqwyNn5Y+NX56QUYfCtsyhF3ayiboEoUmJk/A==}
+    engines: {node: 20 || >=22}
+    hasBin: true
 
   rollup@4.40.0:
     resolution: {integrity: sha512-Noe455xmA96nnqH5piFtLobsGbCij7Tu+tb3c1vYjNbTkfzGqXqQXG3wJaYXkRZuQ0vEYN4bhwg7QnIrqB5B+w==}
@@ -2553,12 +2582,12 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@ladle/react-context@1.0.1(react-dom@18.3.1)(react@18.3.1)':
+  '@ladle/react-context@1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@ladle/react@5.0.2(@types/react@18.3.1)(acorn@8.14.1)(react-dom@18.3.1)(react@18.3.1)(typescript@5.8.3)':
+  '@ladle/react@5.0.2(@types/react@18.3.1)(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)':
     dependencies:
       '@babel/code-frame': 7.26.2
       '@babel/core': 7.26.10
@@ -2567,7 +2596,7 @@ snapshots:
       '@babel/template': 7.27.0
       '@babel/traverse': 7.27.0
       '@babel/types': 7.27.0
-      '@ladle/react-context': 1.0.1(react-dom@18.3.1)(react@18.3.1)
+      '@ladle/react-context': 1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mdx-js/mdx': 3.1.0(acorn@8.14.1)
       '@mdx-js/react': 3.1.0(@types/react@18.3.1)(react@18.3.1)
       '@vitejs/plugin-react': 4.4.0(vite@6.3.1)
@@ -2592,7 +2621,7 @@ snapshots:
       query-string: 9.1.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-hotkeys-hook: 4.6.2(react-dom@18.3.1)(react@18.3.1)
+      react-hotkeys-hook: 4.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-inspector: 6.0.2(react@18.3.1)
       rehype-class-names: 2.0.0
       rehype-raw: 7.0.0
@@ -3225,7 +3254,7 @@ snapshots:
       reusify: 1.1.0
 
   fdir@6.4.3(picomatch@4.0.2):
-    dependencies:
+    optionalDependencies:
       picomatch: 4.0.2
 
   fill-range@7.1.1:
@@ -3284,6 +3313,15 @@ snapshots:
       minipass: 7.1.2
       package-json-from-dist: 1.0.1
       path-scurry: 1.11.1
+
+  glob@11.0.2:
+    dependencies:
+      foreground-child: 3.3.1
+      jackspeak: 4.1.0
+      minimatch: 10.0.1
+      minipass: 7.1.2
+      package-json-from-dist: 1.0.1
+      path-scurry: 2.0.0
 
   globals@11.12.0: {}
 
@@ -3521,6 +3559,10 @@ snapshots:
     optionalDependencies:
       '@pkgjs/parseargs': 0.11.0
 
+  jackspeak@4.1.0:
+    dependencies:
+      '@isaacs/cliui': 8.0.2
+
   joycon@3.1.1: {}
 
   js-tokens@4.0.0: {}
@@ -3587,6 +3629,8 @@ snapshots:
       js-tokens: 4.0.0
 
   lru-cache@10.4.3: {}
+
+  lru-cache@11.1.0: {}
 
   lru-cache@5.1.1:
     dependencies:
@@ -4040,6 +4084,10 @@ snapshots:
     dependencies:
       mime-db: 1.52.0
 
+  minimatch@10.0.1:
+    dependencies:
+      brace-expansion: 2.0.1
+
   minimatch@9.0.5:
     dependencies:
       brace-expansion: 2.0.1
@@ -4067,8 +4115,9 @@ snapshots:
       picocolors: 1.1.1
       strict-event-emitter: 0.5.1
       type-fest: 4.40.0
-      typescript: 5.8.3
       yargs: 17.7.2
+    optionalDependencies:
+      typescript: 5.8.3
     transitivePeerDependencies:
       - '@types/node'
 
@@ -4132,6 +4181,11 @@ snapshots:
       lru-cache: 10.4.3
       minipass: 7.1.2
 
+  path-scurry@2.0.0:
+    dependencies:
+      lru-cache: 11.1.0
+      minipass: 7.1.2
+
   path-to-regexp@6.3.0: {}
 
   path-type@6.0.0: {}
@@ -4144,9 +4198,11 @@ snapshots:
 
   pirates@4.0.7: {}
 
-  postcss-load-config@6.0.1:
+  postcss-load-config@6.0.1(postcss@8.5.3):
     dependencies:
       lilconfig: 3.1.3
+    optionalDependencies:
+      postcss: 8.5.3
 
   postcss@8.5.3:
     dependencies:
@@ -4192,7 +4248,7 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-hotkeys-hook@4.6.2(react-dom@18.3.1)(react@18.3.1):
+  react-hotkeys-hook@4.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -4312,6 +4368,11 @@ snapshots:
   resolve-from@5.0.0: {}
 
   reusify@1.1.0: {}
+
+  rimraf@6.0.1:
+    dependencies:
+      glob: 11.0.2
+      package-json-from-dist: 1.0.1
 
   rollup@4.40.0:
     dependencies:
@@ -4479,12 +4540,12 @@ snapshots:
   ts-interface-checker@0.1.13: {}
 
   tsconfck@3.1.5(typescript@5.8.3):
-    dependencies:
+    optionalDependencies:
       typescript: 5.8.3
 
   tsscmp@1.0.6: {}
 
-  tsup@8.4.0(typescript@5.8.3):
+  tsup@8.4.0(@swc/core@1.11.21)(postcss@8.5.3)(typescript@5.8.3):
     dependencies:
       bundle-require: 5.1.0(esbuild@0.25.2)
       cac: 6.7.14
@@ -4494,7 +4555,7 @@ snapshots:
       esbuild: 0.25.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1
+      postcss-load-config: 6.0.1(postcss@8.5.3)
       resolve-from: 5.0.0
       rollup: 4.40.0
       source-map: 0.8.0-beta.0
@@ -4502,6 +4563,9 @@ snapshots:
       tinyexec: 0.3.2
       tinyglobby: 0.2.12
       tree-kill: 1.2.2
+    optionalDependencies:
+      '@swc/core': 1.11.21
+      postcss: 8.5.3
       typescript: 5.8.3
     transitivePeerDependencies:
       - jiti
@@ -4623,6 +4687,7 @@ snapshots:
       debug: 4.4.0
       globrex: 0.1.2
       tsconfck: 3.1.5(typescript@5.8.3)
+    optionalDependencies:
       vite: 6.3.1
     transitivePeerDependencies:
       - supports-color

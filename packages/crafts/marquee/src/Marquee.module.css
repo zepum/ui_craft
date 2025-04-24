@@ -23,7 +23,7 @@
   --destination-x: calc(calc((var(--idx) + 1) * -100%));
   --destination-y: 0;
   --duration: calc(var(--speed) * 1s);
-  --delay: calc((var(--duration) / var(--count)) * (var(--idx) - var(--count) * 0.5));
+  --delay: calc((var(--duration) / var(--count)) * (var(--idx) - var(--count) * 0.5) - 4s);
   translate: var(--origin-x) var(--origin-y);
   animation: marqueeFlow linear infinite;
   animation-duration: var(--duration);
