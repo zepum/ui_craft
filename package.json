@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "turbo run build",
     "dev": "pnpm ladle serve",
-    "test": "turbo run test",
-    "clean": "turbo run clean && rimraf build",
-    "format": "biome format --write .",
-    "check": "biome check .",
+    "build": "turbo run build",
+    "build:core": "pnpm --filter '@core/*' build",
+    "build:story": "turbo run build && pnpm ladle build",
+    "update:core": "pnpm build:core && pnpm i",
+    "clear": "turbo run clean && rimraf build",
     "ts-check": "tsc --noEmit",
-    "build:story": "turbo run build && pnpm ladle build"
+    "test": "turbo run test"
   },
   "keywords": [],
   "author": "",

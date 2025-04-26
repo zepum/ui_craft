@@ -2,11 +2,9 @@ import { Pane } from 'tweakpane';
 import { useEffect, useState } from 'react';
 import type { PaneConfig } from 'tweakpane/dist/types/pane/pane-config';
 
-export type PaneProps = PaneConfig & {
-  //   추후에 pane 위치를 드래그할 수 있는 기능을 추가하고, 위치를 로컬 스토리지에 저장해두기 위해서 만들어둚
-  paneId?: string;
-  draggable?: boolean;
-};
+export type PaneProps<T extends Record<string, unknown>> = {
+  defaultConfig: T;
+} & PaneConfig;
 
 /**
  * @description
@@ -15,33 +13,59 @@ export type PaneProps = PaneConfig & {
  *
  * @example
  * ```tsx
- * const pane = usePane();
- * useEffect(() => {
- *   const PARAMS = {
- *     speed: 50,
- *   }
- *   const pane = new Pane();
- *   pane.addBinding(PARAMS, 'speed', {
- *     min: 0,
- *     max: 100,
- *   });
- *  return () => {
- *      pane.dispose();
- *  }
- * }, [pane]);
+ * 
+ * const SETTINGS = { outline: true };
+ * 
+  const { pane, __DEV_config, setConfig } = usePane({
+    defaultConfig: SETTINGS,
+    title: 'Setting',
+  });
+
+  useEffect(() => {
+    if (!pane) return;
+    pane.addBinding(SETTINGS, 'outline', { label: 'jack' }).on('change', setConfig);
+  }, [pane]);
  *
  * ```
  */
-export const usePane = ({ paneId, draggable = true, ...config }: PaneProps): Pane | null => {
+
+export const usePane = <Config extends Record<string, unknown>>({
+  defaultConfig,
+  ...paneProps
+}: PaneProps<Config>): {
+  pane: Pane | null;
+  __DEV_config: Config;
+  setConfig: Parameters<Pane['on']>[1];
+} => {
   const [pane, setPane] = useState<Pane | null>(null);
+  const [config, _setConfig] = useState<Config>(defaultConfig);
 
   useEffect(() => {
     const pane = new Pane({
-      ...config,
+      ...paneProps,
     });
 
     setPane(pane);
+    return () => {
+      pane.dispose();
+    };
   }, []);
 
-  return pane;
+  const setConfig: Parameters<Pane['on']>[1] = ev => {
+    // @ts-ignore
+    const key = ev.target.key;
+    // @ts-ignore
+    const value = ev.value;
+
+    _setConfig(prev => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
+
+  return {
+    pane,
+    __DEV_config: config,
+    setConfig,
+  };
 };
