@@ -83,7 +83,7 @@ const changeToPascal = (slug) => {
   if (!slug || typeof slug !== "string") return "";
   return slug
     .split("_")
-    .map((word) => word.charAt(0).toUpperCase + word.slice(1))
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join("");
 };
 
@@ -110,9 +110,9 @@ const createDirectory = async (slug) => {
       path.join(componentDir, "package.json"),
       JSON.stringify(packageJson, null, 2)
     );
-    await fs.writeFile(path.join(srcPath, "index.ts"));
-    await fs.writeFile(path.join(srcPath, `${pascalFileName}.tsx`));
-    await fs.writeFile(path.join(srcPath, `${pascalFileName}.module.css`));
+    await fs.writeFile(path.join(srcPath, "index.ts"), "");
+    await fs.writeFile(path.join(srcPath, `${pascalFileName}.tsx`), "");
+    await fs.writeFile(path.join(srcPath, `${pascalFileName}.module.css`), "");
 
     return true;
   } catch (error) {
