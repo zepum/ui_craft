@@ -1,2 +1,62 @@
 @import url("../../../core/theme/color.css");
 @import url("../../../core/theme/reset.css");
+
+.object {
+  --object-height: 210px;
+  --object-width: 150px;
+
+  width: var(--object-width);
+  height: var(--object-height);
+
+  position: relative;
+  color: var(--background);
+  font-family: monospace;
+  font-size: var(--object-height);
+}
+
+.object[data-outline="true"] {
+  outline: 2px dotted #f00;
+}
+
+.object > div {
+  --gap: 2px;
+  --h: 6px;
+  --w: 4px;
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--foreground);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.object > div:nth-child(odd) {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(50% - var(--gap) / 2 - var(--h)),
+    calc(100% - var(--w)) calc(50% - var(--gap) / 2 - var(--h)),
+    calc(100% - var(--w)) calc(50% - var(--gap) / 2),
+    var(--w) calc(50% - var(--gap) / 2),
+    var(--w) calc(50% - var(--gap) / 2 - var(--h)),
+    0 calc(50% - var(--gap) / 2 - var(--h))
+  );
+}
+
+.object > div:nth-child(even) {
+  clip-path: polygon(
+    0 calc(50% + var(--gap) / 2 + var(--h)),
+    0 100%,
+    100% 100%,
+    100% calc(50% + var(--gap) / 2 + var(--h)),
+    calc(100% - var(--w)) calc(50% + var(--gap) / 2 + var(--h)),
+    calc(100% - var(--w)) calc(50% + var(--gap) / 2),
+    calc(0% + var(--w)) calc(50% + var(--gap) / 2),
+    calc(0% + var(--w)) calc(50% + var(--gap) / 2 + var(--h))
+  );
+}

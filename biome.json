@@ -13,6 +13,9 @@
       "correctness": {
         "useExhaustiveDependencies": "warn"
       },
+      "style": {
+        "useSelfClosingElements": "off"
+      },
       "a11y": {
         "noSvgWithoutTitle": "off"
       }

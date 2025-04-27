@@ -5,6 +5,13 @@ import { usePane } from '@core/debug';
 const SHAPE_PRESET = ['circle', 'square', 'triangle'] as const;
 type Shape = (typeof SHAPE_PRESET)[number];
 
+const DEFAULT_CONFIG = {
+  stroke: '#000',
+  shape: 'circle',
+  gradient: 'url(#horizontal-gradient)',
+  animate: false,
+};
+
 export const Svg = ({
   shape,
   stroke,
@@ -16,12 +23,9 @@ export const Svg = ({
   gradient?: string;
   animate?: boolean;
 }) => {
-  const [__DBG_storke, setStroke] = useState(stroke ?? '#000');
-  const [__DBG_shape, setShape] = useState<Shape>(shape);
-  const [__DBG_gradient, setGradient] = useState(gradient ?? 'url(#horizontal-gradient)');
-  const [__DBG_strokeAnimationActive, setStrokeAnimationActive] = useState(animate ?? false);
-  const pane = usePane({
+  const { pane, __DEV_config, setConfig } = usePane({
     title: 'DEBUGGER',
+    defaultConfig: DEFAULT_CONFIG,
   });
 
   useEffect(() => {
@@ -29,42 +33,27 @@ export const Svg = ({
       return;
     }
 
-    const initialConfig = {
-      stroke: '#000',
-      shape: shape,
-      gradient: 'url(#horizontal-gradient)',
-      animate: false,
-    };
-
-    pane.addBinding(initialConfig, 'stroke').on('change', ({ value }) => {
-      setStroke(value);
-    });
+    pane.addBinding(DEFAULT_CONFIG, 'stroke').on('change', setConfig);
     pane
-      .addBinding(initialConfig, 'shape', {
+      .addBinding(DEFAULT_CONFIG, 'shape', {
         options: {
           circle: 'circle',
           square: 'square',
           triangle: 'triangle',
         },
       })
-      .on('change', ({ value }) => {
-        setShape(value);
-      });
+      .on('change', setConfig);
 
     pane
-      .addBinding(initialConfig, 'gradient', {
+      .addBinding(DEFAULT_CONFIG, 'gradient', {
         options: {
           horizontal: 'url(#horizontal-gradient)',
           vertical: 'url(#vertical-gradient)',
         },
       })
-      .on('change', ({ value }) => {
-        setGradient(value);
-      });
+      .on('change', setConfig);
 
-    pane.addBinding(initialConfig, 'animate').on('change', ({ value }) => {
-      setStrokeAnimationActive(value);
-    });
+    pane.addBinding(DEFAULT_CONFIG, 'animate').on('change', setConfig);
 
     return () => {
       if (pane) {
@@ -97,11 +86,11 @@ export const Svg = ({
         </g>
       </defs>
       <use
-        className={__DBG_strokeAnimationActive ? styles.strokeAnimate : ''}
-        href={`#${__DBG_shape}`}
+        className={__DEV_config.animate ? styles.strokeAnimate : ''}
+        href={`#${__DEV_config.shape}`}
         stroke-dasharray={[4]}
-        stroke={__DBG_storke}
-        fill={__DBG_gradient}
+        stroke={__DEV_config.stroke}
+        fill={__DEV_config.gradient}
       />
     </svg>
   );

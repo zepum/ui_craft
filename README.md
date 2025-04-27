@@ -1,18 +1,10 @@
 # UI Crafts
 
-## 개발 환경 세팅
+## 개발 환경 세팅 
 
-0) pnpm build
-    - 모든 패키지 빌드
-1) pnpm i
-    - 모든 패키지 설치
-2) vscode 플러그인 설치
+1. vscode 플러그인 설치 
     - Biome (코드 포멧터)
-    - TSX Definition Filter (TSX 파일 정의 필터)
+    - TSX Definition Filter[Optional] (.tsx 에서 module.css 파일을 cmd 클릭 시, 해당 파일로 바로 갈 수 있게 해줌)
 
-## 개발 명령어
-
-- pnpm build 
-    - 모든 패키지 빌드
-- pnpm dev
-    - 스토리 서버 실행됨 (http://localhost:61000)
+2. 모노레포 패키지 빌드 및 설치
+    - pnpm i && pnpm build && pnpm i

@@ -15,12 +15,6 @@
     },
     "test": {
       "cache": false
-    },
-    "format": {
-      "cache": false
-    },
-    "check": {
-      "cache": false
     }
   }
 }
