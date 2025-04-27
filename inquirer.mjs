@@ -51,6 +51,7 @@ banner: { js: '"use client";' },
     scripts: {
       build: 'tsup --dts',
       clean: 'rimraf dist .turbo',
+      'clean:hard': 'rimraf dist .turbo node_modules',
       typecheck: 'tsc --noEmit',
       type: 'tsc --emitDeclarationOnly --outDir dist',
     },

@@ -12,6 +12,7 @@
   "scripts": {
     "build": "tsup --dts",
     "clean": "rimraf dist .turbo",
+    "clean:hard": "pnpm clean && rimraf node_modules",
     "typecheck": "tsc --noEmit",
     "type": "tsc --emitDeclarationOnly --outDir dist"
   },

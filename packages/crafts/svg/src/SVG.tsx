@@ -54,12 +54,6 @@ export const Svg = ({
       .on('change', setConfig);
 
     pane.addBinding(DEFAULT_CONFIG, 'animate').on('change', setConfig);
-
-    return () => {
-      if (pane) {
-        pane.dispose();
-      }
-    };
   }, [pane]);
 
   return (

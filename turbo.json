@@ -13,6 +13,9 @@
     "clean": {
       "cache": false
     },
+    "clean:hard": {
+      "cache": false
+    },
     "test": {
       "cache": false
     }
