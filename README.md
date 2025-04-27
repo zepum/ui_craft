@@ -8,3 +8,8 @@
 
 2. 모노레포 패키지 빌드 및 설치
     - pnpm i && pnpm build && pnpm i
+
+3. pnpm create:craft 
+    - 프로젝트 생성
+
+4. pnpm dev
