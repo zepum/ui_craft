@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create:craft": "node inquirer.mjs && pnpm i",
     "dev": "pnpm ladle serve",
     "build": "turbo run build",
     "build:core": "pnpm --filter '@core/*' build",
     "build:story": "turbo run build && pnpm ladle build",
     "update:core": "pnpm build:core && pnpm i",
-    "clear": "turbo run clean && rimraf build",
+    "clean": "turbo run clean && rimraf build",
+    "clean:hard": "turbo run clean:hard && rimraf build node_modules",
     "ts-check": "tsc --noEmit",
     "test": "turbo run test"
   },
@@ -24,7 +26,8 @@
     "rimraf": "^6.0.1",
     "tsup": "^8.4.0",
     "turbo": "^2.5.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "inquirer": "^12.5.2"
   },
   "packageManager": "pnpm@9.6.0"
 }
