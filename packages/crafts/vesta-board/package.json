@@ -2,7 +2,9 @@
   "name": "@craft/vesta-board",
   "version": "1.0.0",
   "description": "",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -21,6 +23,7 @@
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "gsap": "^3.12.7"
   },
   "devDependencies": {

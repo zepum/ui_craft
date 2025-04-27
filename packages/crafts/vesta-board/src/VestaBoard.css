@@ -4,6 +4,8 @@
 .object {
   --object-height: 210px;
   --object-width: 150px;
+  --font-size: calc(var(--object-height) * 0.5 + var(--object-height) * 0.5);
+  --perspective: 1;
 
   width: var(--object-width);
   height: var(--object-height);
@@ -12,6 +14,8 @@
   color: var(--background);
   font-family: monospace;
   font-size: var(--object-height);
+
+  perspective: calc(var(--perspective) * 1em);
 }
 
 .object[data-outline="true"] {
@@ -33,6 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform-style: preserve-3d;
 }
 
 .object > div:nth-child(odd) {
@@ -59,4 +64,22 @@
     calc(0% + var(--w)) calc(50% + var(--gap) / 2),
     calc(0% + var(--w)) calc(50% + var(--gap) / 2 + var(--h))
   );
+}
+
+.object > div:nth-child(1) {
+  z-index: 3;
+  backface-visibility: hidden;
+}
+
+.object > div:nth-of-type(2) {
+  /* z-index: 2; */
+}
+
+.object > div:nth-of-type(3) {
+  backface-visibility: hidden;
+}
+
+.object > div:nth-of-type(4) {
+  z-index: 2;
+  backface-visibility: hidden;
 }
