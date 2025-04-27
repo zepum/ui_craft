@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create:craft": "node inquirer.mjs",
     "dev": "pnpm ladle serve",
     "build": "turbo run build",
     "build:core": "pnpm --filter '@core/*' build",

@@ -11,12 +11,8 @@
   },
   "scripts": {
     "build": "tsup --dts",
-    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:fast": "tsup",
-    "prepack": "clean-package",
-    "postpack": "clean-package restore",
     "type": "tsc --emitDeclarationOnly --outDir dist"
   },
   "peerDependencies": {
