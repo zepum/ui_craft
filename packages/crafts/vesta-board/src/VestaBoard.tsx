@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import './VestaBoard.css';
 import { usePane } from '@core/debug';
 import { useGSAP } from '@gsap/react';
@@ -9,7 +9,22 @@ const DEV_SETTINGS = {
   rotateX: 0,
 } as const;
 
+const charset = 'abcdefghijklmnopqrstuvwxyz';
+
 export const VestaBoard = () => {
+  return <VestaLine />;
+};
+
+export const VestaLine = () => {
+  return <VestaBlock />;
+};
+
+type VestaBlockProps = {
+  currentChar: string;
+  targetChar: string;
+};
+
+export const VestaBlock = ({ currentChar, targetChar }: VestaBlockProps) => {
   const { pane, __DEV_config, setConfig } = usePane({
     defaultConfig: DEV_SETTINGS,
     title: 'Setting',
@@ -27,7 +42,16 @@ export const VestaBoard = () => {
     );
 
     const tl = gsap
-      .timeline()
+      .timeline({
+        // paused: true,
+        repeat: 1,
+        onRepeat: arg => {
+          console.log(arg);
+          gsap.set([forwardTop, forwardBottom], { innerText: 'B' });
+          gsap.set([forwardTop], { rotateX: 0 });
+          gsap.set([backwardTop, backwardBottom], { innerText: 'C' });
+        },
+      })
       .fromTo(backwardBottom, { rotateX: 180 }, { rotateX: 0 }, 0)
       .fromTo(forwardTop, { rotateX: 0 }, { rotateX: -180 }, 0);
 
