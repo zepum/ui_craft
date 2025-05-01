@@ -11,7 +11,7 @@ const DEV_SETTINGS = {
   flipTrigger: 0,
 } as const;
 
-const charset = 'abcdefghijklmnopqrstuvwxyz';
+const charset = ' abcdefghijklmnopqrstuvwxyz!@ ';
 
 export const VestaBoard = () => {
   return <VestaLine />;
@@ -76,6 +76,7 @@ export const VestaBlock = ({ currentChar, targetChar }: VestaBlockProps) => {
 
   useGSAP(
     async () => {
+      GSDevTools.create();
       if (!__DEV_config.flipTrigger) {
         return;
       }
@@ -105,7 +106,6 @@ export const VestaBlock = ({ currentChar, targetChar }: VestaBlockProps) => {
         document.querySelectorAll('.object > div'),
       );
 
-      let repeatCount = 0;
       const initialCharIdx = charset.indexOf(forwardTop.innerHTML.toString());
       const targetCharIdx = charset.indexOf(__DEV_config.target);
 
@@ -141,35 +141,30 @@ export const VestaBlock = ({ currentChar, targetChar }: VestaBlockProps) => {
 
       const tl = gsap
         .timeline({
-          repeat: distance - 1,
+          repeat: charset.length - 2,
           paused: true,
-        })
-        .add([
-          gsap.fromTo([forwardTop], { rotateX: 0 }, { rotateX: -180, duration: 1 }),
-          gsap.fromTo([backwardBottom], { rotateX: 180 }, { rotateX: 0, duration: 1 }),
-        ])
-        .call(
-          () => {
-            repeatCount++;
+          onRepeat: () => {
+            const idx = Math.floor(tl.totalTime());
+            console.log('==> idx', idx, '==> untrimed', tl.totalTime() / tl.totalDuration());
+
             gsap.set([forwardTop, forwardBottom], {
-              innerText: charset[(initialCharIdx + repeatCount) % charset.length],
+              innerText: charset[idx],
             });
             gsap.set([forwardTop], {
               rotateX: 0,
             });
             gsap.set([backwardTop, backwardBottom], {
-              innerText: charset[(initialCharIdx + repeatCount + 1) % charset.length],
+              innerText: charset[idx + 1],
             });
             gsap.set([backwardBottom], {
               rotateX: 180,
             });
           },
-          [],
-          '>',
-        );
-
-      console.log(tl.totalDuration());
-      console.log(tl.totalTime());
+        })
+        .add([
+          gsap.fromTo([forwardTop], { rotateX: 0 }, { rotateX: -180, duration: 1 }),
+          gsap.fromTo([backwardBottom], { rotateX: 180 }, { rotateX: 0, duration: 1 }),
+        ]);
 
       const shift = distance;
       // this is how you throw an extra loop in for the stagger
@@ -180,10 +175,6 @@ export const VestaBlock = ({ currentChar, targetChar }: VestaBlockProps) => {
         ease: 'power1.out',
         duration: 2,
       });
-
-      console.log('totalDuration', tl.totalDuration());
-      console.log('duration', tl.duration());
-      console.log('totalTime', tl.totalTime());
     },
     {
       dependencies: [__DEV_config.target],
