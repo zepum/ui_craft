@@ -11,4 +11,24 @@ export default {
   gtag('config', 'G-FLXPC2KE6D');
 </script>
   `,
+  addons: {
+    control: {
+      enabled: false,
+    },
+    rtl: {
+      enabled: false,
+    },
+    ladle: {
+      enabled: false,
+    },
+    source: {
+      enabled: false,
+    },
+    mode: {
+      enabled: false,
+    },
+    width: {
+      enabled: false,
+    },
+  },
 };
