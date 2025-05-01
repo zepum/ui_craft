@@ -85,9 +85,13 @@ const projectRoot = path.resolve();
 const dirPath = slug => path.join(projectRoot, `packages/crafts/${slug}`);
 const changeToPascal = slug => {
   if (!slug || typeof slug !== 'string') return '';
-  return slug
+
+  const normalized = slug.replace(/[-_]+/g, '_').replace(/([a-z])([A-Z])/g, '$1_$2');
+
+  return normalized
     .split('_')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .filter(word => word.length > 0)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join('');
 };
 
