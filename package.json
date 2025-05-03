@@ -7,7 +7,7 @@
     "craft": "node inquirer.mjs && pnpm i",
     "dev": "pnpm ladle serve",
     "build": "turbo run build",
-    "build:core": "pnpm --filter '@core/*' build",
+    "build:core": "pnpm --filter '@core/*' build && pnpm i",
     "build:story": "turbo run build && pnpm ladle build",
     "update:core": "pnpm build:core && pnpm i",
     "clean": "turbo run clean && rimraf build",
