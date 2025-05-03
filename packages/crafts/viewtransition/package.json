@@ -1,5 +1,5 @@
 {
-  "name": "@craft/vesta-board",
+  "name": "@craft/viewtransition",
   "version": "1.0.0",
   "description": "",
   "files": [
@@ -14,18 +14,13 @@
   "scripts": {
     "build": "tsup --dts",
     "clean": "rimraf dist .turbo",
-    "clean:hard": "pnpm clean && rimraf node_modules",
+    "clean:hard": "rimraf dist .turbo node_modules",
     "typecheck": "tsc --noEmit",
     "type": "tsc --emitDeclarationOnly --outDir dist"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
-  },
-  "dependencies": {
-    "@gsap/react": "^2.1.2",
-    "gsap": "^3.12.7",
-    "rxjs": "^7.8.2"
   },
   "devDependencies": {
     "@core/debug": "workspace:*",

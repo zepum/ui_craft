@@ -33,7 +33,18 @@ export const TanosTrigger = ({
     }
   };
 
-  return <div onClick={handleClick}>{children}</div>;
+  return (
+    <div
+      onClick={handleClick}
+      onKeyDown={e => {
+        if (e.key === 'Enter') {
+          handleClick();
+        }
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export const TanosInput = React.forwardRef<HTMLInputElement, TanosInputProps>((props, ref) => {

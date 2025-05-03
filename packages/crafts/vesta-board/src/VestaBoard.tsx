@@ -1,32 +1,24 @@
-import { useEffect } from 'react';
-import styles from './VestaBoard.module.css';
-import { usePane } from '@core/debug';
+import { useState } from 'react';
+import './VestaBoard.css';
+import { VestaBlock } from './VestaBlock';
 
-const DEV_SETTINGS = {
-  outline: true,
-} as const;
+const charset = ' abcdefghijklmnopqrstuvwxyz!@ ';
 
 export const VestaBoard = () => {
-  const { pane, __DEV_config, setConfig } = usePane({
-    defaultConfig: DEV_SETTINGS,
-    title: 'Setting',
-  });
+  return <VestaLine />;
+};
 
-  useEffect(() => {
-    if (!pane) return;
-    pane.addBinding(DEV_SETTINGS, 'outline').on('change', setConfig);
-  }, [pane]);
+export const VestaLine = () => {
+  const [line, setLine] = useState<string>('cool');
 
   return (
-    <div data-outline={__DEV_config.outline} className={styles.object}>
-      {/* foward top */}
-      <div>A</div>
-      {/* foward bottom */}
-      <div>A</div>
-      {/* backward top */}
-      {/* <div>A</div> */}
-      {/* backward bottom */}
-      {/* <div></div> */}
+    <div>
+      <input type='text' value={line} onChange={e => setLine(e.target.value)} />
+      <div style={{ display: 'flex', gap: '10px' }}>
+        {Array.from({ length: 4 }).map((_, idx) => (
+          <VestaBlock key={idx} charset={charset} targetChar={line[idx]} />
+        ))}
+      </div>
     </div>
   );
 };
