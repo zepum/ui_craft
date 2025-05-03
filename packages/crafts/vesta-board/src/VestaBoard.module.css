@@ -1,0 +1,9 @@
+@import url("../../../core/theme/color.css");
+@import url("../../../core/theme/reset.css");
+
+.boardContainer {
+  --line-gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--line-gap);
+}

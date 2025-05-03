@@ -4,16 +4,21 @@
 .blockContainer {
   --object-height: 70px;
   --object-width: 50px;
-  --font-size: calc(var(--object-width) * 0.5 + var(--object-height) * 0.5);
-  --perspective: 1;
+  --font-size: calc(var(--object-width) * 0.45 + var(--object-height) * 0.45);
+  --perspective: 2;
+  /* 윗부분과 아랫부분 사이 */
+  --gap: 2px;
+  /* 들어간 부분 높이 */
+  --h: 6px;
+  /* 들어간 부분 너비 */
+  --w: 4px;
 
   width: var(--object-width);
   height: var(--object-height);
 
   position: relative;
-  color: var(--background);
   font-family: monospace;
-  font-size: var(--object-height);
+  font-size: var(--font-size);
 
   /* 부모에 perspective 가 있어야 자식의 3d가 적용된다. */
   perspective: calc(var(--perspective) * 1em);
@@ -25,13 +30,31 @@
     --perspective: 10;
     width: 350px;
   }
+
+  /* 쪼가리 UI */
+  &::after {
+    content: "";
+    position: absolute;
+    width: calc(var(--w) - 1px);
+    height: calc(var(--h) * 2);
+    background-color: var(--foreground);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: calc(var(--w) - 1px);
+    height: calc(var(--h) * 2);
+    background-color: var(--foreground);
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
 }
 
 .blockContainer > div {
-  --gap: 2px;
-  --h: 6px;
-  --w: 4px;
-
   width: 100%;
   height: 100%;
   position: absolute;

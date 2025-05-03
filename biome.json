@@ -18,6 +18,9 @@
       },
       "a11y": {
         "noSvgWithoutTitle": "off"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "warn"
       }
     }
   },
