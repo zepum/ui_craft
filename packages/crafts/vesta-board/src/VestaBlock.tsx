@@ -39,8 +39,9 @@ export const VestaBlock = ({ targetChar, charset }: VestaBlockProps) => {
             gsap.set('.backward', {
               innerText: charset[idx + 1],
             });
-            gsap.fromTo('.backwardTop', { filter: 'brightness(0.5)' }, { filter: 'brightness(1)' });
-            gsap.fromTo('.forwardBottom', { filter: 'brightness(1)' }, { filter: 'brightness(0.2)' });
+            gsap.fromTo('.backwardTop', { filter: 'brightness(0.3)' }, { filter: 'brightness(1)' });
+            gsap.fromTo('.backwardBottom', { filter: 'brightness(0.3)' }, { filter: 'brightness(1)' });
+            gsap.fromTo('.forwardBottom', { filter: 'brightness(1)' }, { filter: 'brightness(0)' });
           },
         })
         .add([

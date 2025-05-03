@@ -7,11 +7,11 @@
   --font-size: calc(var(--object-width) * 0.45 + var(--object-height) * 0.45);
   --perspective: 2;
   /* 윗부분과 아랫부분 사이 */
-  --gap: 2px;
+  --gap: 1px;
   /* 들어간 부분 높이 */
-  --h: 6px;
+  --h: 5px;
   /* 들어간 부분 너비 */
-  --w: 4px;
+  --w: 3px;
 
   width: var(--object-width);
   height: var(--object-height);
