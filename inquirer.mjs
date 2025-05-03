@@ -22,7 +22,7 @@ const getConfig = slug => {
       module: 'NodeNext',
       moduleResolution: 'node16',
     },
-    include: ['src', 'index.ts', '../../../css-module.d.ts'],
+    include: ['src', 'index.ts', '../../../css-module.d.ts', 'stories'],
   };
 
   // tsup.config.ts
