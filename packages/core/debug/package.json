@@ -2,7 +2,9 @@
   "name": "@core/debug",
   "version": "1.0.0",
   "description": "",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -24,7 +26,9 @@
     "tweakpane": "^4.0.5"
   },
   "devDependencies": {
-    "@tweakpane/core": "^2.0.5"
+    "@tweakpane/core": "^2.0.5",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.1"
   },
   "keywords": [],
   "author": "",

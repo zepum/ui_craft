@@ -1,24 +1,32 @@
-import { useState } from 'react';
-import './VestaBoard.css';
-import { VestaBlock } from './VestaBlock';
+import { VestaLine } from './VestaLine';
+import styles from './VestaBoard.module.css';
 
-const charset = ' abcdefghijklmnopqrstuvwxyz!@ ';
+export const CHAR_SET = ' abcdefghijklmnopqrstuvwxyz!@ ';
 
-export const VestaBoard = () => {
-  return <VestaLine />;
+export type VestaBoardProps = {
+  columnCount: number;
+  lines: Array<{
+    text: string;
+    align: 'left' | 'center' | 'right';
+    color: string;
+    charset: string;
+  }>;
 };
 
-export const VestaLine = () => {
-  const [line, setLine] = useState<string>('cool');
-
+export const VestaBoard = ({ columnCount, lines }: VestaBoardProps) => {
   return (
-    <div>
-      <input type='text' value={line} onChange={e => setLine(e.target.value)} />
-      <div style={{ display: 'flex', gap: '10px' }}>
-        {Array.from({ length: 4 }).map((_, idx) => (
-          <VestaBlock key={idx} charset={charset} targetChar={line[idx]} />
-        ))}
-      </div>
+    <div className={styles.boardContainer}>
+      {lines.map((line, index) => (
+        <VestaLine
+          key={`vesta-line-${index}`}
+          row={index}
+          column={columnCount}
+          text={line.text.toLowerCase()}
+          align={line.align}
+          color={line.color}
+          charset={line.charset}
+        />
+      ))}
     </div>
   );
 };
