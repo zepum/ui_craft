@@ -62,6 +62,7 @@ export const VestaBlock = ({ targetChar, charset }: VestaBlockProps) => {
         const character = char;
         const currentIndex = charset.indexOf(charset[Math.round(tl.totalTime())]);
         const desiredIndex = charset.indexOf(character);
+
         // if the current index is greater, loop around
         // we seem to have to add an extra 0.5 to make up for gaps
         const shift =
@@ -84,13 +85,13 @@ export const VestaBlock = ({ targetChar, charset }: VestaBlockProps) => {
   return (
     <div ref={container} className={styles.blockContainer}>
       {/* foward top */}
-      <div className={'forward forwardTop'}></div>
+      <div className={'forward forwardTop'}>{targetChar}</div>
       {/* foward bottom */}
-      <div className={'forward forwardBottom'}></div>
+      <div className={'forward forwardBottom'}>{targetChar}</div>
       {/* backward top */}
-      <div className={'backward backwardTop'}></div>
+      <div className={'backward backwardTop'}>{targetChar}</div>
       {/* backward bottom */}
-      <div className={'backward backwardBottom'}></div>
+      <div className={'backward backwardBottom'}>{targetChar}</div>
     </div>
   );
 };
