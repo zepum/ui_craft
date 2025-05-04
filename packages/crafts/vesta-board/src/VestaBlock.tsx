@@ -39,14 +39,14 @@ export const VestaBlock = ({ targetChar, charset }: VestaBlockProps) => {
             gsap.set('.backward', {
               innerText: charset[idx + 1],
             });
-            gsap.fromTo('.backwardTop', { filter: 'brightness(0.3)' }, { filter: 'brightness(1)' });
-            gsap.fromTo('.backwardBottom', { filter: 'brightness(0.3)' }, { filter: 'brightness(1)' });
-            gsap.fromTo('.forwardBottom', { filter: 'brightness(1)' }, { filter: 'brightness(0)' });
           },
         })
         .add([
           gsap.fromTo('.forwardTop', { rotateX: 0 }, { rotateX: -180, duration: 1 }),
           gsap.fromTo('.backwardBottom', { rotateX: 180 }, { rotateX: 0, duration: 1 }),
+          gsap.fromTo('.backwardTop', { filter: 'brightness(0.3)' }, { filter: 'brightness(1)', duration: 1 }),
+          gsap.fromTo('.backwardBottom', { filter: 'brightness(0.3)' }, { filter: 'brightness(1)', duration: 1 }),
+          gsap.fromTo('.forwardBottom', { filter: 'brightness(1)' }, { filter: 'brightness(0)', duration: 1 }),
         ]);
 
       const duration = tl.totalDuration();
@@ -83,7 +83,7 @@ export const VestaBlock = ({ targetChar, charset }: VestaBlockProps) => {
   );
 
   return (
-    <div ref={container} className={styles.blockContainer}>
+    <div ref={container} className={styles.blockContainer} data-theme={'magic'} data-shape={'circle'}>
       {/* foward top */}
       <div className={'forward forwardTop'}>{targetChar}</div>
       {/* foward bottom */}
