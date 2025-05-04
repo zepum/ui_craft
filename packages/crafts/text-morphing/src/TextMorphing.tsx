@@ -4,6 +4,7 @@ import { calculateBlurEffect, calculateOpacity, getCircularIndex } from './utils
 import type { AnimationState, TextConfig } from './types';
 
 export const TextMorphing = () => {
+  // TODO: 컨트롤러 빼기 
   const [textConfig, setTextConfig] = useState<TextConfig>({
     texts: [
       '바위 아래 작은 샘물도 흘러서',
