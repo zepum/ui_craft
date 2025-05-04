@@ -2,17 +2,6 @@
 @import url("../../../core/theme/reset.css");
 
 .blockContainer {
-  --object-height: 70px;
-  --object-width: 50px;
-  --font-size: calc(var(--object-width) * 0.45 + var(--object-height) * 0.45);
-  --perspective: 2;
-  /* 윗부분과 아랫부분 사이 */
-  --gap: 1px;
-  /* 들어간 부분 높이 */
-  --h: 5px;
-  /* 들어간 부분 너비 */
-  --w: 3px;
-
   width: var(--object-width);
   height: var(--object-height);
 
@@ -32,25 +21,27 @@
   }
 
   /* 쪼가리 UI */
-  &::after {
-    content: "";
-    position: absolute;
-    width: calc(var(--w) - 1px);
-    height: calc(var(--h) * 2);
-    background-color: var(--foreground);
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    width: calc(var(--w) - 1px);
-    height: calc(var(--h) * 2);
-    background-color: var(--foreground);
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
+  [data-shape="default"] & {
+    &::after {
+      content: "";
+      position: absolute;
+      width: calc(var(--w) - 1px);
+      height: calc(var(--h) * 2);
+      background: var(--block-bg);
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(var(--w) - 1px);
+      height: calc(var(--h) * 2);
+      background: var(--block-bg);
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
   }
 }
 
@@ -60,7 +51,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--foreground);
+  background: var(--block-bg);
 
   display: flex;
   align-items: center;
@@ -70,29 +61,11 @@
 }
 
 .blockContainer > div:nth-child(odd) {
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(50% - var(--gap) / 2 - var(--h)),
-    calc(100% - var(--w)) calc(50% - var(--gap) / 2 - var(--h)),
-    calc(100% - var(--w)) calc(50% - var(--gap) / 2),
-    var(--w) calc(50% - var(--gap) / 2),
-    var(--w) calc(50% - var(--gap) / 2 - var(--h)),
-    0 calc(50% - var(--gap) / 2 - var(--h))
-  );
+  clip-path: var(--top-shape);
 }
 
 .blockContainer > div:nth-child(even) {
-  clip-path: polygon(
-    0 calc(50% + var(--gap) / 2 + var(--h)),
-    0 100%,
-    100% 100%,
-    100% calc(50% + var(--gap) / 2 + var(--h)),
-    calc(100% - var(--w)) calc(50% + var(--gap) / 2 + var(--h)),
-    calc(100% - var(--w)) calc(50% + var(--gap) / 2),
-    calc(0% + var(--w)) calc(50% + var(--gap) / 2),
-    calc(0% + var(--w)) calc(50% + var(--gap) / 2 + var(--h))
-  );
+  clip-path: var(--bottom-shape);
 }
 
 .blockContainer > div:nth-child(1) {
