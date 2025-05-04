@@ -48,6 +48,11 @@
     calc(0% + var(--w)) calc(50% + var(--gap) / 2 + var(--h))
   );
 
+  &[data-shape="ellipse"] {
+    --top-shape: url(#ellipse-top);
+    --bottom-shape: url(#ellipse-bottom);
+  }
+
   display: flex;
   flex-direction: column;
   gap: 6px;
