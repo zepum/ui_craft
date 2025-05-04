@@ -1,0 +1,42 @@
+@import url("../../../core/theme/color.css");
+@import url("../../../core/theme/reset.css");
+
+@font-face {
+  font-family: "SangSangRock";
+  src: url("https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  filter: url(#morphingFilter);
+}
+
+.textContainer {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: SangSangRock, sans-serif;
+  font-size: 50px;
+  text-align: center;
+  color: #000000;
+  will-change: filter, opacity;
+}
+
+.morphingSvg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
