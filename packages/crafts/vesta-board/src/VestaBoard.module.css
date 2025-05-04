@@ -49,10 +49,6 @@
   );
 
   &[data-shape="ellipse"] {
-    --half-height: calc(var(--object-height) / 2);
-    --half-width: calc(var(--object-width) / 2);
-    --half-gap: calc(var(--gap) / 2);
-
     --top-shape: url(#ellipse-top);
     --bottom-shape: url(#ellipse-bottom);
   }
