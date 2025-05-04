@@ -4,7 +4,7 @@ import { calculateBlurEffect, calculateOpacity, getCircularIndex } from './utils
 import type { AnimationState, TextConfig } from './types';
 
 export const TextMorphing = () => {
-  // TODO: 컨트롤러 빼기 
+  // TODO: 컨트롤러 빼기
   const [textConfig, setTextConfig] = useState<TextConfig>({
     texts: [
       '바위 아래 작은 샘물도 흘러서',
@@ -12,8 +12,8 @@ export const TextMorphing = () => {
       '뜰 앞의 작은 나무도',
       '하늘을 꿰뚫을 마음을 가지고 있다.',
     ],
-    morphingTime: 2,
-    cooldownTime: 0.1,
+    morphingTime: 1.2,
+    cooldownTime: 0.5,
   });
 
   // 텍스트 모핑 애니메이션의 타이밍을 제어하기 위한 상태
@@ -74,7 +74,6 @@ export const TextMorphing = () => {
     prevTextRef.current.style.opacity = '0%';
   };
 
-  // 애니메이션 루프 함수
   const animate = () => {
     const state = animationState.current;
 
@@ -86,15 +85,11 @@ export const TextMorphing = () => {
     state.cooldownRemainingTime -= dt;
 
     if (state.cooldownRemainingTime <= 0) {
-      if (shouldIncrementIndex) {
-        state.textIndex++;
-      }
-
+      if (shouldIncrementIndex) state.textIndex++;
       doMorphing();
     } else {
       doCooldown();
     }
-
     animationFrameIdRef.current = requestAnimationFrame(animate);
   };
 
