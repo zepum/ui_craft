@@ -2,9 +2,7 @@
   "name": "@craft/text-morphing",
   "version": "1.0.0",
   "description": "",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

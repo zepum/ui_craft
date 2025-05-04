@@ -5,10 +5,5 @@
     "module": "NodeNext",
     "moduleResolution": "node16"
   },
-  "include": [
-    "src",
-    "index.ts",
-    "../../../css-module.d.ts",
-    "stories"
-  ]
+  "include": ["src", "index.ts", "../../../css-module.d.ts", "stories"]
 }
