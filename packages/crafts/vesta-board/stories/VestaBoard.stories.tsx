@@ -23,21 +23,25 @@ const createLine = (
   return {
     id: Math.random().toString(36).substring(2, 8),
     text,
-    align: options?.align ?? 'center',
+    align: options?.align ?? 'left',
     color: options?.color ?? '#fff',
     charset: options?.charset ?? CHAR_SET,
   };
 };
 
 const INITIAL_LINES = [
-  createLine('hi world', {
-    align: 'center',
+  createLine('I hope', {
+    align: 'left',
     color: '#eee',
     charset: CHAR_SET,
   }),
-  createLine(''),
-  createLine(''),
-  createLine(''),
+  createLine('you have'),
+  createLine('a good Day'),
+  createLine('GOD bless U!', {
+    color: '#26c7e8',
+    align: 'center',
+    charset: CHAR_SET,
+  }),
 ];
 
 const INITIAL_VALUE = {
