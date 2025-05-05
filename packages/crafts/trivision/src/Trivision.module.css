@@ -1,0 +1,10 @@
+@import url("../../../core/theme/color.css");
+@import url("../../../core/theme/reset.css");
+
+.container {
+  --segment-gap: 3px;
+
+  display: flex;
+  flex-direction: row;
+  gap: var(--segment-gap);
+}
