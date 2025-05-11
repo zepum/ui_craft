@@ -37,21 +37,17 @@
   backface-visibility: black;
   transform-style: preserve-3d;
   overflow: hidden;
-  animation: rotate 10s linear infinite;
 }
 
 .segmentContainer > div:nth-child(1) {
-  background-color: blue;
   transform: rotateY(var(--segment-rotate)) translateZ(var(--z-offset));
 }
 
 .segmentContainer > div:nth-child(2) {
-  background-color: green;
   transform: rotateY(calc(var(--segment-rotate) + 120deg)) translateZ(var(--z-offset));
 }
 
 .segmentContainer > div:nth-child(3) {
-  background-color: yellow;
   transform: rotateY(calc(var(--segment-rotate) + 240deg)) translateZ(var(--z-offset));
 }
 
@@ -61,13 +57,4 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: calc(var(--segment-idx) * var(--segment-width) * -1);
-}
-
-@keyframes rotate {
-  from {
-    --segment-rotate: 0deg;
-  }
-  to {
-    --segment-rotate: 360deg;
-  }
 }
