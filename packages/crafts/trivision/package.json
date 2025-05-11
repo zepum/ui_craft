@@ -17,9 +17,9 @@
     "type": "tsc --emitDeclarationOnly --outDir dist"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.2",
-    "gsap": "^3.12.7",
-    "usehooks-ts": "^3.1.1"
+    "@gsap/react": "catalog:animation",
+    "gsap": "catalog:animation",
+    "usehooks-ts": "catalog:utils"
   },
   "peerDependencies": {
     "react": "catalog:react19",

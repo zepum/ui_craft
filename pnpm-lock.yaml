@@ -58,6 +58,9 @@ catalogs:
     rxjs:
       specifier: ^7.8.2
       version: 7.8.2
+    usehooks-ts:
+      specifier: ^3.1.1
+      version: 3.1.1
 
 pnpmfileChecksum: ispnqhbvg4laq6ierkkioe35ku
 
@@ -194,10 +197,10 @@ importers:
   packages/crafts/trivision:
     dependencies:
       '@gsap/react':
-        specifier: ^2.1.2
+        specifier: catalog:animation
         version: 2.1.2(gsap@3.12.7)(react@19.1.0)
       gsap:
-        specifier: ^3.12.7
+        specifier: catalog:animation
         version: 3.12.7
       react:
         specifier: catalog:react19
@@ -206,7 +209,7 @@ importers:
         specifier: catalog:react19
         version: 19.1.0(react@19.1.0)
       usehooks-ts:
-        specifier: ^3.1.1
+        specifier: catalog:utils
         version: 3.1.1(react@19.1.0)
     devDependencies:
       '@core/debug':
