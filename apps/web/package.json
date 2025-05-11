@@ -1,0 +1,22 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
+    "next": "15.3.2"
+  },
+  "devDependencies": {
+    "typescript": "catalog:types",
+    "@types/node": "catalog:types",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19"
+  }
+}
