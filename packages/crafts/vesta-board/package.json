@@ -2,9 +2,7 @@
   "name": "@craft/vesta-board",
   "version": "1.0.0",
   "description": "",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -19,19 +17,19 @@
     "type": "tsc --emitDeclarationOnly --outDir dist"
   },
   "peerDependencies": {
-    "react": ">=18 || >=19.0.0-rc.0",
-    "react-dom": ">=18 || >=19.0.0-rc.0"
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.2",
-    "es-toolkit": "^1.36.0",
-    "gsap": "^3.12.7",
-    "rxjs": "^7.8.2"
+    "@gsap/react": "catalog:animation",
+    "es-toolkit": "catalog:utils",
+    "gsap": "catalog:animation",
+    "rxjs": "catalog:utils"
   },
   "devDependencies": {
     "@core/debug": "workspace:*",
-    "@types/react": "18.3.1",
-    "@types/react-dom": "18.3.1"
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19"
   },
   "keywords": [],
   "author": "",

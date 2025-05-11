@@ -2,9 +2,7 @@
   "name": "@core/debug",
   "version": "1.0.0",
   "description": "",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -19,16 +17,16 @@
     "type": "tsc --emitDeclarationOnly --outDir dist"
   },
   "peerDependencies": {
-    "react": ">=18 || >=19.0.0-rc.0",
-    "react-dom": ">=18 || >=19.0.0-rc.0"
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19"
   },
   "dependencies": {
     "tweakpane": "^4.0.5"
   },
   "devDependencies": {
     "@tweakpane/core": "^2.0.5",
-    "@types/react": "18.3.1",
-    "@types/react-dom": "18.3.1"
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19"
   },
   "keywords": [],
   "author": "",
