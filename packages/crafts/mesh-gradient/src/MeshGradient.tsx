@@ -16,17 +16,18 @@ export const MeshGradient: React.FC<MeshGradientProps> = ({
 }) => {
   console.log('Rendering MeshGradient with colors:', { color0, color1, color2, color3 });
 
-  const gradientStyle = `radial-gradient(circle at 0% 0%, ${color0} 0%, ${color0} 100%),
+  const gradientStyle = `
+  radial-gradient(circle at 0% 0%, ${color0} 0%, ${color0} 100%),
   radial-gradient(circle at 100% 0%, ${color1} 0%, ${color1} 100%),
   radial-gradient(circle at 0% 100%, ${color2} 0%, ${color2} 100%),
-  radial-gradient(circle at 100% 100%, ${color3} 0%, ${color3} 100%)`;
+  radial-gradient(circle at 100% 100%, ${color3} 0%, ${color3} 100%)
+  `;
 
   const meshGradientStyle: React.CSSProperties = {
-    background: gradientStyle,
-
-    width: '300px',
+    width: '400px',
     height: '300px',
     borderRadius: '8px',
+    background: gradientStyle,
   };
   return (
     <>

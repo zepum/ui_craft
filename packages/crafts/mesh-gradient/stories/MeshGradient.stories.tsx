@@ -34,52 +34,36 @@ export const Default: Story = () => {
           onChange={value => {
             setDevValue({
               ...devValue,
-              points: value,
+              points: value as number,
             });
           }}
         />
         <Binding
           name='color0'
           value={devValue.color0}
-          config={{
-            type: 'color',
-            label: `그라디언트 색상 0`,
-          }}
           onChange={value => {
-            setDevValue({ ...devValue, color0: value });
+            setDevValue({ ...devValue, color0: value as string });
           }}
         />
         <Binding
           name='color1'
           value={devValue.color1}
-          config={{
-            type: 'color',
-            label: `그라디언트 색상 1`,
-          }}
           onChange={value => {
-            setDevValue({ ...devValue, color1: value });
+            setDevValue({ ...devValue, color1: value as string });
           }}
         />
         <Binding
           name='color2'
           value={devValue.color2}
-          config={{
-            type: 'color',
-            label: `그라디언트 색상 2`,
-          }}
           onChange={value => {
-            setDevValue({ ...devValue, color2: value });
+            setDevValue({ ...devValue, color2: value as string });
           }}
         />
         <Binding
           name='color3'
           value={devValue.color3}
-          config={{
-            type: 'color',
-            label: `그라디언트 색상 3`,
-          }}
           onChange={value => {
-            setDevValue({ ...devValue, color3: value });
+            setDevValue({ ...devValue, color3: value as string });
           }}
         />
       </Pane>

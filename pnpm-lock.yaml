@@ -4,46 +4,106 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  animation:
+    '@gsap/react':
+      specifier: ^2.1.2
+      version: 2.1.2
+    gsap:
+      specifier: ^3.12.7
+      version: 3.12.7
+  build:
+    rimraf:
+      specifier: ^6.0.1
+      version: 6.0.1
+    tsup:
+      specifier: ^8.4.0
+      version: 8.4.0
+  cli:
+    inquirer:
+      specifier: ^12.5.2
+      version: 12.6.0
+    turbo:
+      specifier: ^2.5.0
+      version: 2.5.1
+  dev:
+    '@ladle/react':
+      specifier: ^5.0.2
+      version: 5.0.2
+  lint:
+    '@biomejs/biome':
+      specifier: ^1.9.4
+      version: 1.9.4
+  react19:
+    '@types/react':
+      specifier: ^19
+      version: 19.1.3
+    '@types/react-dom':
+      specifier: ^19
+      version: 19.1.3
+    react:
+      specifier: ^19.0.0
+      version: 19.1.0
+    react-dom:
+      specifier: ^19.0.0
+      version: 19.1.0
+  types:
+    typescript:
+      specifier: ^5.8.3
+      version: 5.8.3
+  utils:
+    es-toolkit:
+      specifier: ^1.36.0
+      version: 1.36.0
+    rxjs:
+      specifier: ^7.8.2
+      version: 7.8.2
+    usehooks-ts:
+      specifier: ^3.1.1
+      version: 3.1.1
+
+pnpmfileChecksum: ispnqhbvg4laq6ierkkioe35ku
+
 importers:
 
   .:
     devDependencies:
       '@biomejs/biome':
-        specifier: ^1.9.4
+        specifier: catalog:lint
         version: 1.9.4
       '@ladle/react':
-        specifier: ^5.0.2
-        version: 5.0.2(@types/react@18.3.1)(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
+        specifier: catalog:dev
+        version: 5.0.2(@types/react@19.1.3)(acorn@8.14.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)
       inquirer:
-        specifier: ^12.5.2
+        specifier: catalog:cli
         version: 12.6.0
       react:
-        specifier: ^18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
       rimraf:
-        specifier: ^6.0.1
+        specifier: catalog:build
         version: 6.0.1
       tsup:
-        specifier: ^8.4.0
+        specifier: catalog:build
         version: 8.4.0(@swc/core@1.11.21)(postcss@8.5.3)(typescript@5.8.3)
       turbo:
-        specifier: ^2.5.0
+        specifier: catalog:cli
         version: 2.5.1
       typescript:
-        specifier: ^5.8.3
+        specifier: catalog:types
         version: 5.8.3
 
   packages/core/debug:
     dependencies:
       react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
       tweakpane:
         specifier: ^4.0.5
         version: 4.0.5
@@ -52,184 +112,174 @@ importers:
         specifier: ^2.0.5
         version: 2.0.5
       '@types/react':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3
       '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3(@types/react@19.1.3)
 
   packages/crafts/hotkey:
     dependencies:
       react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
     devDependencies:
       '@core/debug':
         specifier: workspace:*
         version: link:../../core/debug
       '@types/react':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3
       '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3(@types/react@19.1.3)
 
   packages/crafts/marquee:
     dependencies:
       react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
     devDependencies:
       '@core/debug':
         specifier: workspace:*
         version: link:../../core/debug
       '@types/react':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3
       '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
-
-  packages/crafts/mesh-gradient:
-    dependencies:
-      react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
-      react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
-    devDependencies:
-      '@core/debug':
-        specifier: workspace:*
-        version: link:../../core/debug
-      '@types/react':
-        specifier: 18.3.1
-        version: 18.3.1
-      '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3(@types/react@19.1.3)
 
   packages/crafts/svg:
     dependencies:
       react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
     devDependencies:
       '@core/debug':
         specifier: workspace:*
         version: link:../../core/debug
       '@types/react':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3
       '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3(@types/react@19.1.3)
 
   packages/crafts/tanos-input:
     dependencies:
       react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
     devDependencies:
       '@core/debug':
         specifier: workspace:*
         version: link:../../core/debug
       '@types/react':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3
       '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3(@types/react@19.1.3)
 
   packages/crafts/trivision:
     dependencies:
+      '@gsap/react':
+        specifier: catalog:animation
+        version: 2.1.2(gsap@3.12.7)(react@19.1.0)
+      gsap:
+        specifier: catalog:animation
+        version: 3.12.7
       react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
+      usehooks-ts:
+        specifier: catalog:utils
+        version: 3.1.1(react@19.1.0)
     devDependencies:
       '@core/debug':
         specifier: workspace:*
         version: link:../../core/debug
       '@types/react':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3
       '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3(@types/react@19.1.3)
 
   packages/crafts/vesta-board:
     dependencies:
       '@gsap/react':
-        specifier: ^2.1.2
-        version: 2.1.2(gsap@3.12.7)(react@18.3.1)
+        specifier: catalog:animation
+        version: 2.1.2(gsap@3.12.7)(react@19.1.0)
       es-toolkit:
-        specifier: ^1.36.0
+        specifier: catalog:utils
         version: 1.36.0
       gsap:
-        specifier: ^3.12.7
+        specifier: catalog:animation
         version: 3.12.7
       react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
       rxjs:
-        specifier: ^7.8.2
+        specifier: catalog:utils
         version: 7.8.2
     devDependencies:
       '@core/debug':
         specifier: workspace:*
         version: link:../../core/debug
       '@types/react':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3
       '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3(@types/react@19.1.3)
 
   packages/crafts/viewtransition:
     dependencies:
       react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
     devDependencies:
       '@core/debug':
         specifier: workspace:*
         version: link:../../core/debug
       '@types/react':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3
       '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.3(@types/react@19.1.3)
 
   packages/utils:
     dependencies:
       react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
+        specifier: catalog:react19
+        version: 19.1.0
       react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react19
+        version: 19.1.0(react@19.1.0)
 
 packages:
 
@@ -954,14 +1004,13 @@ packages:
   '@types/prismjs@1.26.5':
     resolution: {integrity: sha512-AUZTa7hQ2KY5L7AmtSiqxlhWxb4ina0yd8hNbl4TWuqnv/pFP0nDMb3YrfSBf4hJVGLh2YEIBfKaBW/9UEl6IQ==}
 
-  '@types/prop-types@15.7.14':
-    resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
+  '@types/react-dom@19.1.3':
+    resolution: {integrity: sha512-rJXC08OG0h3W6wDMFxQrZF00Kq6qQvw0djHRdzl3U5DnIERz0MRce3WVc7IS6JYBwtaP/DwYtRRjVlvivNveKg==}
+    peerDependencies:
+      '@types/react': ^19.0.0
 
-  '@types/react-dom@18.3.1':
-    resolution: {integrity: sha512-qW1Mfv8taImTthu4KoXgDfLuk4bydU6Q/TkADnDWWHwi4NX4BR+LWfTp2sVmTqRrsHvyDDTelgelxJ+SsejKKQ==}
-
-  '@types/react@18.3.1':
-    resolution: {integrity: sha512-V0kuGBX3+prX+DQ/7r2qsv1NsdfnCLnTgnRJ1pYnxykBhGMz+qj+box5lq7XsO5mtZsBqpjwwTu/7wszPfMBcw==}
+  '@types/react@19.1.3':
+    resolution: {integrity: sha512-dLWQ+Z0CkIvK1J8+wrDPwGxEYFA4RAyHoZPxHVGspYmFVnwGSNT24cGIhFJrtfRnWVuW8X7NO52gCXmhkVUWGQ==}
 
   '@types/statuses@2.0.5':
     resolution: {integrity: sha512-jmIUGWrAiwu3dZpxntxieC+1n/5c3mjrImkmOSQ2NC5uP6cYO4aAZDdSmRcI5C1oiTmqlZGHC+/NmJrKogbP5A==}
@@ -1652,6 +1701,9 @@ packages:
     resolution: {integrity: sha512-IXO6OCs9yg8tMKzfPZ1YmheJbZCiEsnBdcB03l0OcfK9prKnJb96siuHCr5Fl37/yo9DnKU+TLpxzTUspw9shg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
+  lodash.debounce@4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
@@ -2028,10 +2080,10 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  react-dom@18.3.1:
-    resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
+  react-dom@19.1.0:
+    resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
-      react: ^18.3.1
+      react: ^19.1.0
 
   react-hotkeys-hook@4.6.2:
     resolution: {integrity: sha512-FmP+ZriY3EG59Ug/lxNfrObCnW9xQShgk7Nb83+CkpfkcCpfS95ydv+E9JuXA5cp8KtskU7LGlIARpkc92X22Q==}
@@ -2042,7 +2094,7 @@ packages:
   react-inspector@6.0.2:
     resolution: {integrity: sha512-x+b7LxhmHXjHoU/VrFAzw5iutsILRoYyDq97EDYdFpPLcvqtEzk4ZSZSQjnFPbr5T57tLXnHcqFYoN1pI6u8uQ==}
     peerDependencies:
-      react: ^16.8.4 || ^17.0.0 || ^18.0.0
+      react: '*'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -2051,8 +2103,8 @@ packages:
     resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
     engines: {node: '>=0.10.0'}
 
-  react@18.3.1:
-    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
+  react@19.1.0:
+    resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
     engines: {node: '>=0.10.0'}
 
   readdirp@4.1.2:
@@ -2147,8 +2199,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  scheduler@0.23.2:
-    resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
+  scheduler@0.26.0:
+    resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -2410,6 +2462,12 @@ packages:
 
   url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
+
+  usehooks-ts@3.1.1:
+    resolution: {integrity: sha512-I4diPp9Cq6ieSUH2wu+fDAVQO43xwtulo+fKEidHUwZPnYImbtkTjzIJYcDcJqxgmX31GVqNFURodvcgHcW0pA==}
+    engines: {node: '>=16.15.0'}
+    peerDependencies:
+      react: ^16.8.0  || ^17 || ^18 || ^19 || ^19.0.0-rc
 
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
@@ -2776,10 +2834,10 @@ snapshots:
   '@esbuild/win32-x64@0.25.2':
     optional: true
 
-  '@gsap/react@2.1.2(gsap@3.12.7)(react@18.3.1)':
+  '@gsap/react@2.1.2(gsap@3.12.7)(react@19.1.0)':
     dependencies:
       gsap: 3.12.7
-      react: 18.3.1
+      react: 19.1.0
 
   '@inquirer/checkbox@4.1.5':
     dependencies:
@@ -2897,12 +2955,12 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@ladle/react-context@1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ladle/react-context@1.0.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
 
-  '@ladle/react@5.0.2(@types/react@18.3.1)(acorn@8.14.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)':
+  '@ladle/react@5.0.2(@types/react@19.1.3)(acorn@8.14.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)':
     dependencies:
       '@babel/code-frame': 7.26.2
       '@babel/core': 7.26.10
@@ -2911,9 +2969,9 @@ snapshots:
       '@babel/template': 7.27.0
       '@babel/traverse': 7.27.0
       '@babel/types': 7.27.0
-      '@ladle/react-context': 1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ladle/react-context': 1.0.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@mdx-js/mdx': 3.1.0(acorn@8.14.1)
-      '@mdx-js/react': 3.1.0(@types/react@18.3.1)(react@18.3.1)
+      '@mdx-js/react': 3.1.0(@types/react@19.1.3)(react@19.1.0)
       '@vitejs/plugin-react': 4.4.0(vite@6.3.1)
       '@vitejs/plugin-react-swc': 3.9.0(vite@6.3.1)
       axe-core: 4.10.3
@@ -2931,13 +2989,13 @@ snapshots:
       lodash.merge: 4.6.2
       msw: 2.7.4(typescript@5.8.3)
       open: 10.1.1
-      prism-react-renderer: 2.4.1(react@18.3.1)
+      prism-react-renderer: 2.4.1(react@19.1.0)
       prop-types: 15.8.1
       query-string: 9.1.1
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-hotkeys-hook: 4.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-inspector: 6.0.2(react@18.3.1)
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+      react-hotkeys-hook: 4.6.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react-inspector: 6.0.2(react@19.1.0)
       rehype-class-names: 2.0.0
       rehype-raw: 7.0.0
       remark-gfm: 4.0.1
@@ -2993,11 +3051,11 @@ snapshots:
       - acorn
       - supports-color
 
-  '@mdx-js/react@3.1.0(@types/react@18.3.1)(react@18.3.1)':
+  '@mdx-js/react@3.1.0(@types/react@19.1.3)(react@19.1.0)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 18.3.1
-      react: 18.3.1
+      '@types/react': 19.1.3
+      react: 19.1.0
 
   '@mswjs/interceptors@0.37.6':
     dependencies:
@@ -3195,15 +3253,12 @@ snapshots:
 
   '@types/prismjs@1.26.5': {}
 
-  '@types/prop-types@15.7.14': {}
-
-  '@types/react-dom@18.3.1':
+  '@types/react-dom@19.1.3(@types/react@19.1.3)':
     dependencies:
-      '@types/react': 18.3.1
+      '@types/react': 19.1.3
 
-  '@types/react@18.3.1':
+  '@types/react@19.1.3':
     dependencies:
-      '@types/prop-types': 15.7.14
       csstype: 3.1.3
 
   '@types/statuses@2.0.5': {}
@@ -3959,6 +4014,8 @@ snapshots:
 
   load-tsconfig@0.2.5: {}
 
+  lodash.debounce@4.0.8: {}
+
   lodash.merge@4.6.2: {}
 
   lodash.sortby@4.7.0: {}
@@ -4553,11 +4610,11 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prism-react-renderer@2.4.1(react@18.3.1):
+  prism-react-renderer@2.4.1(react@19.1.0):
     dependencies:
       '@types/prismjs': 1.26.5
       clsx: 2.1.1
-      react: 18.3.1
+      react: 19.1.0
 
   prop-types@15.8.1:
     dependencies:
@@ -4585,28 +4642,25 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  react-dom@18.3.1(react@18.3.1):
+  react-dom@19.1.0(react@19.1.0):
     dependencies:
-      loose-envify: 1.4.0
-      react: 18.3.1
-      scheduler: 0.23.2
+      react: 19.1.0
+      scheduler: 0.26.0
 
-  react-hotkeys-hook@4.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-hotkeys-hook@4.6.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
 
-  react-inspector@6.0.2(react@18.3.1):
+  react-inspector@6.0.2(react@19.1.0):
     dependencies:
-      react: 18.3.1
+      react: 19.1.0
 
   react-is@16.13.1: {}
 
   react-refresh@0.17.0: {}
 
-  react@18.3.1:
-    dependencies:
-      loose-envify: 1.4.0
+  react@19.1.0: {}
 
   readdirp@4.1.2: {}
 
@@ -4765,9 +4819,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  scheduler@0.23.2:
-    dependencies:
-      loose-envify: 1.4.0
+  scheduler@0.26.0: {}
 
   semver@6.3.1: {}
 
@@ -5021,6 +5073,11 @@ snapshots:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+
+  usehooks-ts@3.1.1(react@19.1.0):
+    dependencies:
+      lodash.debounce: 4.0.8
+      react: 19.1.0
 
   vary@1.1.2: {}
 
