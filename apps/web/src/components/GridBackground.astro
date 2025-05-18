@@ -1,0 +1,52 @@
+---
+export interface Props {
+    as?: keyof HTMLElementTagNameMap;
+    size?: string | number;
+    class?: string;
+    bgColor?: string;
+    lineColor?: string;
+}
+
+const { as: Element = 'div', class: className = '', size, bgColor, lineColor, ...rest } = Astro.props;
+---
+
+<Element
+    style={{
+        '--size': size,
+        '--bg-color': bgColor,
+        '--line-color': lineColor,
+    }}
+    class:list={['grid-background', className]}
+    {...rest}
+>
+    <slot />
+</Element>
+
+<style>
+    .grid-background {
+        --size: 100px;
+        --bg-color: #1b73e8;
+        --line-color: white;
+        --line: color-mix(in hsl, var(--line-color), transparent 87%);
+        background-color: var(--bg-color);
+        position: fixed;
+        height: 100dvh;
+        width: 100dvw;
+        &::before {
+            transition: opacity 0.2s ease-in-out;
+            content: '';
+            height: 100%;
+            width: 100%;
+            height: 100dvh;
+            width: 100dvw;
+            position: fixed;
+            background:
+                linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size),
+                linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size);
+            top: 0;
+            transform-style: flat;
+            pointer-events: none;
+            z-index: -1;
+        }
+    }
+</style>

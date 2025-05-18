@@ -1,0 +1,12 @@
+@layer reset, base;
+
+@import 'reset.css' layer(reset);
+
+@layer base {
+    html {
+        color: white;
+        font-family: monospace;
+        color-scheme: light;
+        scrollbar-gutter: stable;
+    }
+}

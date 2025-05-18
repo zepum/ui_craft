@@ -9,5 +9,12 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  // site: "FIXME",
+  prefetch: true,
   integrations: [react(), mdx(), sitemap()],
+  vite: {
+    css: {
+      transformer: 'lightningcss',
+    },
+  },
 });

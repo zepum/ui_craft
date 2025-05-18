@@ -12,6 +12,7 @@
     "@astrojs/mdx": "^4.2.6",
     "@astrojs/react": "^4.2.7",
     "@astrojs/sitemap": "^3.4.0",
+    "@craft/marquee":"workspace:*",
     "astro": "^5.7.13",
     "react": "catalog:react19",
     "react-dom": "catalog:react19"
@@ -19,6 +20,7 @@
   "devDependencies": {
     "typescript": "catalog:types",
     "@types/react": "catalog:react19",
-    "@types/react-dom": "catalog:react19"
+    "@types/react-dom": "catalog:react19",
+    "lightningcss": "catalog:css"
   }
 }
