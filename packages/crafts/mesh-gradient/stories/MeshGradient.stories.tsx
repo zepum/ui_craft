@@ -5,11 +5,11 @@ import { Binding, Pane } from '../../../core/debug/src';
 import { useState } from 'react';
 
 const DEFAULT_CONFIG = {
-  points: 4,
-  color0: { r: 255, g: 0, b: 0, a: 1.0 },
-  color1: { r: 0, g: 255, b: 0, a: 1.0 },
-  color2: { r: 0, g: 0, b: 255, a: 1.0 },
-  color3: { r: 0, g: 255, b: 255, a: 1.0 },
+  color0: { r: 33, g: 255, b: 147, a: 1.0 },
+  color1: { r: 0, g: 255, b: 255, a: 1.0 },
+  color2: { r: 3, g: 0, b: 255, a: 1.0 },
+  color3: { r: 170, g: 84, b: 255, a: 1.0 },
+  center: { r: 255, g: 0, b: 0, a: 1.0 },
 };
 
 export const Default: Story = () => {
@@ -22,23 +22,6 @@ export const Default: Story = () => {
           title: 'Mesh Gradient',
         }}
       >
-        <Binding
-          name='points'
-          value={devValue.points}
-          config={{
-            type: 'number',
-            min: 4,
-            max: 8,
-            step: 1,
-            label: 'point of starting gradient',
-          }}
-          onChange={value => {
-            setDevValue({
-              ...devValue,
-              points: value as number,
-            });
-          }}
-        />
         <Binding
           name='color0'
           value={devValue.color0}
@@ -67,13 +50,20 @@ export const Default: Story = () => {
             setDevValue({ ...devValue, color3: value as Tint });
           }}
         />
+        <Binding
+          name='center'
+          value={devValue.center}
+          onChange={value => {
+            setDevValue({ ...devValue, center: value as Tint });
+          }}
+        />
       </Pane>
       <MeshGradient
         color0={devValue.color0}
         color1={devValue.color1}
         color2={devValue.color2}
         color3={devValue.color3}
-        points={devValue.points}
+        center={devValue.center}
       />
     </div>
   );
