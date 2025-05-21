@@ -1,5 +1,6 @@
 import type { Story } from '@ladle/react';
+import { FingerPrint } from '../src/FingerPrint';
 
 export const Default: Story = () => {
-  return <h1>Hello</h1>;
+  return <FingerPrint />;
 };

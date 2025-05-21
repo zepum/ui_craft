@@ -120,6 +120,12 @@ importers:
 
   packages/crafts/finger_print:
     dependencies:
+      '@gsap/react':
+        specifier: catalog:animation
+        version: 2.1.2(gsap@3.13.0)(react@19.1.0)
+      gsap:
+        specifier: catalog:animation
+        version: 3.13.0
       react:
         specifier: catalog:react19
         version: 19.1.0

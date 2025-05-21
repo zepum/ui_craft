@@ -2,9 +2,7 @@
   "name": "@craft/finger_print",
   "version": "1.0.0",
   "description": "",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -29,5 +27,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "catalog:animation",
+    "@gsap/react": "catalog:animation"
+  }
 }
