@@ -6,7 +6,7 @@
   "scripts": {
     "craft": "node inquirer.mjs && pnpm i",
     "dev": "pnpm ladle serve",
-    "dev:web": "turbo run dev --filter web",
+    "dev:web": "turbo run watch",
     "build": "turbo run build",
     "build:core": "pnpm --filter '@core/*' build && pnpm i",
     "build:story": "turbo run build && pnpm ladle build",
