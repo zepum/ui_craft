@@ -1,5 +1,5 @@
 import { z } from 'zod/v4';
 
-export const craftMetadataSchema = z.object({
+export const craftMetaSchema = z.object({
   draft: z.boolean().optional(),
 });

@@ -2,7 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { craftMetadataSchema } from './metadata.schema';
+import { craftMetaSchema } from './metadata.schema';
 
 export const getContentSlugs = async () => {
   const contentDir = path.join(process.cwd(), 'src/content');
@@ -19,9 +19,9 @@ export const getContentSlugs = async () => {
 };
 
 export const getContentMdx = async (slug: string) => {
-  const { default: Mdx, metadata } = await import(`@/content/${slug}.mdx`);
+  const { default: Mdx, meta: mdxMeta } = await import(`@/content/${slug}.mdx`);
 
-  const meta = craftMetadataSchema.parse(metadata);
+  const meta = craftMetaSchema.parse(mdxMeta);
 
   return {
     Mdx,
