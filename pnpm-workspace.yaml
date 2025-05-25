@@ -26,6 +26,8 @@ catalogs:
     '@gsap/react': ^2.1.2
   css:
     lightningcss: ^1.30.1
+    tailwindcss: ^4.1.7
+    '@tailwindcss/postcss': ^4.1.7
   utils:
     'es-toolkit': ^1.36.0
     rxjs: ^7.8.2

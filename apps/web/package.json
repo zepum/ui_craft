@@ -1,26 +1,36 @@
 {
   "name": "web",
-  "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "watch": "next dev",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.2.6",
-    "@astrojs/react": "^4.2.7",
-    "@astrojs/sitemap": "^3.4.0",
-    "@craft/marquee":"workspace:*",
-    "astro": "^5.7.13",
+    "@craft/marquee": "workspace:*",
+    "@craft/svg": "workspace:*",
+    "@craft/tanos-input": "workspace:*",
+    "@craft/trivision": "workspace:*",
+    "@craft/vesta-board": "workspace:*",
+    "@craft/viewtransition": "workspace:*",
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "15.4.0-canary.51",
+    "next": "15.3.2",
     "react": "catalog:react19",
-    "react-dom": "catalog:react19"
+    "react-dom": "catalog:react19",
+    "zod": "^3.25.28"
   },
   "devDependencies": {
-    "typescript": "catalog:types",
+    "@tailwindcss/postcss": "catalog:css",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "catalog:types",
     "@types/react": "catalog:react19",
     "@types/react-dom": "catalog:react19",
-    "lightningcss": "catalog:css"
+    "tailwindcss": "catalog:css",
+    "typescript": "catalog:types"
   }
 }
