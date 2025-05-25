@@ -1,4 +1,4 @@
-.grid-background {
+.gridBackground {
   --size: 100px;
   --bg-color: #1b73e8;
   --line-color: white;
@@ -7,6 +7,7 @@
   position: fixed;
   height: 100dvh;
   width: 100dvw;
+  z-index: -1;
   &::before {
     transition: opacity 0.2s ease-in-out;
     content: "";

@@ -20,8 +20,8 @@ export default async function Page({
       <div>
         <h1>{slug}</h1>
         <p>{meta.draft ? 'draft' : 'published'}</p>
+        <Mdx />
       </div>
-      <Mdx />
     </>
   );
 }
