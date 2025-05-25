@@ -10,7 +10,8 @@
     }
   },
   "scripts": {
-    "build": "tsup --dts",
+    "watch": "tsup --watch",
+    "build": "tsup",
     "clean": "rimraf dist .turbo",
     "clean:hard": "pnpm clean && rimraf node_modules",
     "typecheck": "tsc --noEmit",

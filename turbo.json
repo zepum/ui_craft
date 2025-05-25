@@ -10,6 +10,10 @@
       "cache": false,
       "persistent": true
     },
+    "watch": {
+      "cache": false,
+      "persistent": true
+    },
     "clean": {
       "cache": false
     },

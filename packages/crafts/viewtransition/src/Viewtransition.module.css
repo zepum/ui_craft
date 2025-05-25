@@ -1,6 +1,3 @@
-@import url("../../../core/theme/color.css");
-@import url("../../../core/theme/reset.css");
-
 .container {
   width: 100%;
   max-width: 500px;
