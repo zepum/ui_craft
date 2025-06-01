@@ -175,25 +175,6 @@ importers:
         specifier: 18.3.1
         version: 18.3.1
 
-  packages/crafts/rainbow-box:
-    dependencies:
-      react:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1
-      react-dom:
-        specifier: '>=18 || >=19.0.0-rc.0'
-        version: 18.3.1(react@18.3.1)
-    devDependencies:
-      '@core/debug':
-        specifier: workspace:*
-        version: link:../../core/debug
-      '@types/react':
-        specifier: 18.3.1
-        version: 18.3.1
-      '@types/react-dom':
-        specifier: 18.3.1
-        version: 18.3.1
-
   packages/crafts/svg:
     dependencies:
       react:

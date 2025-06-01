@@ -14,6 +14,7 @@ const DEFAULT_CONFIG = {
 
 export const Default: Story = () => {
   const [devValue, setDevValue] = useState(DEFAULT_CONFIG);
+
   return (
     <div>
       <Pane
