@@ -1,5 +1,5 @@
 import { Pane } from 'tweakpane';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
 import type { PaneConfig } from 'tweakpane/dist/types/pane/pane-config';
 
 export type PaneProps<T extends Record<string, unknown>> = {
@@ -36,6 +36,7 @@ export const usePane = <Config extends Record<string, unknown>>({
   pane: Pane | null;
   __DEV_config: Config;
   setConfig: Parameters<Pane['on']>[1];
+  _setConfig: Dispatch<SetStateAction<Config>>;
 } => {
   const [pane, setPane] = useState<Pane | null>(null);
   const [config, _setConfig] = useState<Config>(defaultConfig);
@@ -67,5 +68,6 @@ export const usePane = <Config extends Record<string, unknown>>({
     pane,
     __DEV_config: config,
     setConfig,
+    _setConfig,
   };
 };

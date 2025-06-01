@@ -1,0 +1,60 @@
+/**
+ * TrivisionSegment.tsx 에서 --segment-idx 를 세팅합니다.
+ * 전체 Trivision 상에서 해당 segement 가 몇번째 인지를 나타냅니다.
+ */
+@property --segment-idx {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: true;
+}
+
+@property --segment-rotate {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+
+.segmentContainer {
+  --segment-width: calc(var(--trivision-width) / var(--segment-count));
+  --z-offset: calc(calc(var(--segment-width) / 2) * tan(30deg));
+
+  position: relative;
+  width: var(--segment-width);
+  height: 100%;
+
+  perspective: 500px;
+  transform-style: preserve-3d;
+  perspective-origin: center;
+  /* transform: rotateX(-15deg); */
+  /* backfaceColor */
+  /* https://stackoverflow.com/questions/17529982/how-can-i-style-the-backface-of-a-rotated-element */
+}
+
+.segmentContainer > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: black;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.segmentContainer > div:nth-child(1) {
+  transform: rotateY(var(--segment-rotate)) translateZ(var(--z-offset));
+}
+
+.segmentContainer > div:nth-child(2) {
+  transform: rotateY(calc(var(--segment-rotate) + 120deg)) translateZ(var(--z-offset));
+}
+
+.segmentContainer > div:nth-child(3) {
+  transform: rotateY(calc(var(--segment-rotate) + 240deg)) translateZ(var(--z-offset));
+}
+
+.imageFace {
+  width: var(--trivision-width);
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: calc(var(--segment-idx) * var(--segment-width) * -1);
+}

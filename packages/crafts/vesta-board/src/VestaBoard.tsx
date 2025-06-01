@@ -1,32 +1,46 @@
-import { useEffect } from 'react';
+import { VestaLine } from './VestaLine';
 import styles from './VestaBoard.module.css';
-import { usePane } from '@core/debug';
 
-const DEV_SETTINGS = {
-  outline: true,
-} as const;
+export const CHAR_SET = ' abcdefghijklmnopqrstuvwxyz!@ ';
+export type Shape = 'default' | 'ellipse';
+export type Theme = 'default' | 'sky' | 'peach' | 'magic';
 
-export const VestaBoard = () => {
-  const { pane, __DEV_config, setConfig } = usePane({
-    defaultConfig: DEV_SETTINGS,
-    title: 'Setting',
-  });
+export type VestaBoardProps = {
+  columnCount: number;
+  lines: Array<{
+    text: string;
+    align: 'left' | 'center' | 'right';
+    color: string;
+    charset: string;
+  }>;
+  blockShape: Shape;
+  theme: Theme;
+};
 
-  useEffect(() => {
-    if (!pane) return;
-    pane.addBinding(DEV_SETTINGS, 'outline').on('change', setConfig);
-  }, [pane]);
-
+export const VestaBoard = ({ columnCount, lines, blockShape, theme }: VestaBoardProps) => {
   return (
-    <div data-outline={__DEV_config.outline} className={styles.object}>
-      {/* foward top */}
-      <div>A</div>
-      {/* foward bottom */}
-      <div>A</div>
-      {/* backward top */}
-      {/* <div>A</div> */}
-      {/* backward bottom */}
-      {/* <div></div> */}
-    </div>
+    <>
+      <svg>
+        <clipPath id='ellipse-top' clipPathUnits='objectBoundingBox'>
+          <path d='M 0 0.49 A 0.5 0.49 0 1 1 1 0.49 Z' />
+        </clipPath>
+        <clipPath id='ellipse-bottom' clipPathUnits='objectBoundingBox'>
+          <path d='M 0 0.51 A 0.5 0.49 0 1 0 1 0.51 Z' />
+        </clipPath>
+      </svg>
+      <div className={styles.boardContainer} data-shape={blockShape} data-theme={theme}>
+        {lines.map((line, index) => (
+          <VestaLine
+            key={`vesta-line-${index}`}
+            row={index}
+            column={columnCount}
+            text={line.text.toLowerCase()}
+            align={line.align}
+            color={line.color}
+            charset={line.charset}
+          />
+        ))}
+      </div>
+    </>
   );
 };

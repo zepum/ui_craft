@@ -22,7 +22,7 @@ const getConfig = slug => {
       module: 'NodeNext',
       moduleResolution: 'node16',
     },
-    include: ['src', 'index.ts', '../../../css-module.d.ts'],
+    include: ['src', 'index.ts', '../../../css-module.d.ts', 'stories'],
   };
 
   // tsup.config.ts
@@ -56,13 +56,13 @@ banner: { js: '"use client";' },
       type: 'tsc --emitDeclarationOnly --outDir dist',
     },
     peerDependencies: {
-      react: '>=18 || >=19.0.0-rc.0',
-      'react-dom': '>=18 || >=19.0.0-rc.0',
+      react: 'catalog:react19',
+      'react-dom': 'catalog:react19',
     },
     devDependencies: {
       '@core/debug': 'workspace:*',
-      '@types/react': '18.3.1',
-      '@types/react-dom': '18.3.1',
+      '@types/react': 'catalog:react19',
+      '@types/react-dom': 'catalog:react19',
     },
     keywords: [],
     author: '',
