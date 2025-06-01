@@ -28,13 +28,19 @@ const getConfig = slug => {
   // tsup.config.ts
   const tsupConfig = `import { defineConfig } from 'tsup';
 
-export default defineConfig({
-entry: ['src/index.ts'],
-clean: true,
-target: 'es2019',
-format: ['cjs', 'esm'],
-banner: { js: '"use client";' },
-});`;
+export default defineConfig((options) => ({
+  entry: ['src/index.ts'],
+  dts: true,
+  clean: true,
+  minify: !options.watch,
+  target: 'es2022',
+  format: ['esm'],
+  banner: { js: '"use client";' },
+  loader: {
+    '.css': 'copy',
+  },
+  external: ['react', 'react-dom'],
+}));`;
 
   // package.json
   const packageJson = {
@@ -49,7 +55,8 @@ banner: { js: '"use client";' },
       },
     },
     scripts: {
-      build: 'tsup --dts',
+      watch: 'tsup --watch',
+      build: 'tsup',
       clean: 'rimraf dist .turbo',
       'clean:hard': 'rimraf dist .turbo node_modules',
       typecheck: 'tsc --noEmit',

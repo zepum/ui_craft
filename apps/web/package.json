@@ -1,0 +1,36 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "watch": "next dev",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@craft/marquee": "workspace:*",
+    "@craft/svg": "workspace:*",
+    "@craft/tanos-input": "workspace:*",
+    "@craft/trivision": "workspace:*",
+    "@craft/vesta-board": "workspace:*",
+    "@craft/viewtransition": "workspace:*",
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "15.4.0-canary.51",
+    "next": "15.3.2",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
+    "zod": "^3.25.28"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "catalog:css",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "catalog:types",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
+    "tailwindcss": "catalog:css",
+    "typescript": "catalog:types"
+  }
+}
