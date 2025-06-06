@@ -1,4 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+html {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+}
+
 /* ladle 기본 UI 커스텀용  */
 .ladle-wrapper {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+/* ladle 컨텐츠 영역에 Grid 배경을 absolute 로 띄우기 위해 추가함 */
+/* .ladle-main {
+  position: relative;
+} */
+
+/* ladle-aside에 글래스모피즘 스타일 적용 */
+.ladle-aside {
+  background: rgba(255, 255, 255, 0.1) !important; /* 반투명 배경 */
+  backdrop-filter: blur(10px); /* 블러 효과 */
+
+  border-radius: 10px; /* 둥근 모서리 */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* 은은한 테두리 */
+  box-shadow: 0 2px 5px 0 rgba(31, 38, 135, 0.37); /* 그림자 효과 */
+  margin: 8px;
+  padding-left: 1em !important;
+  padding-top: 1em !important;
+  font-family: "Space Mono", monospace !important;
+  font-weight: 400 !important;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  @starting-style {
+    opacity: 0;
+    filter: blur(8px);
+  }
+
+  transition: opacity 1s ease-in-out, filter 1s ease-in-out;
+  opacity: 1;
+  filter: blur(0px);
+}
+
+.ladle-resize-handle {
+  display: none;
+}
+
+.ladle-addons {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.ladle-aside ul[role="tree"] > li {
+  line-height: 1.5em !important;
+
+  & > div {
+    align-items: center !important;
+
+    & > div {
+      align-items: center !important;
+    }
+  }
+}
+
+ul[role="group"] > li[role="treeitem"] div:has(> svg) {
+  visibility: hidden;
+}
+
+input[aria-label="Search stories"] {
+  display: none;
 }
