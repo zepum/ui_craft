@@ -1,0 +1,29 @@
+@import url("../../../core/theme/color.css");
+@import url("../../../core/theme/reset.css");
+
+.mesh {
+  width: 100%;
+  height: 100%;
+  border-radius: 200px;
+  background:
+    radial-gradient(circle at var(--position-x) var(--position-y), var(--center-color) 0%, var(--center-color-end) 50%),
+    radial-gradient(circle at calc(100% - var(--position-x)) calc(100% - var(--position-y)), var(--center-color) 0%, var(--center-color-end) 50%),
+    radial-gradient(circle at 0% 0%, var(--color0) 0%, var(--color0-end) 70%),
+    radial-gradient(circle at 100% 0%, var(--color1) 0%, var(--color1-end) 80%),
+    radial-gradient(circle at 0% 100%, var(--color2) 0%, var(--color2-end) 90%),
+    radial-gradient(circle at 100% 100%, var(--color3) 0%, var(--color3-end) 100%);
+}
+
+.container {
+  width: 400px;
+  height: 400px;
+}
+
+.bg {
+  width: 500px;
+  height: 500px;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
