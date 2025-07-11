@@ -2,25 +2,30 @@
 @import url("../../../core/theme/reset.css");
 
 .container{
-   
-    width:100%;
-    height:100%;
+    width:100vw;
+    height:100vh;
+    padding:40px;
     /* background:pink; */
 }
 .grid{
     width:50%;
-    height:30%;
+    height:90%;
     display:grid;
     grid-template-columns:repeat(var(--cols), 1fr);
-    grid-template-rows:repeat(var(--rows), 1fr);
+    grid-template-rows:repeat(var(--rows), 1fr); 
     /* border: 1px solid #ccc; */
-     position:relative;
+}
+.dotContainer{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 .dot{
+    margin:0 auto;
     position:absolute;
-    width:200px;
-    height:200px;
-    left:calc(var(--x)*(100% - 350px));
-    top:calc(var(--y)*(100% - 180px));
-    background: radial-gradient(rgb(30, 144, 255), #cefac4,transparent 50%);
+    width:var(--size);
+    height:var(--size);
+    /* transform:translate(-20px); */
+    background: radial-gradient(var(--color-out), var(--color-in),transparent 40%);
 }
