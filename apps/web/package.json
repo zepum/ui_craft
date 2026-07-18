@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "catalog:css",
-    "@types/mdx": "^2.0.13",
+    "@types/mdx": "^2.0.14",
     "@types/node": "catalog:types",
     "@types/react": "catalog:react19",
     "@types/react-dom": "catalog:react19",
