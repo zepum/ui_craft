@@ -31,5 +31,5 @@
     "typescript": "catalog:types",
     "inquirer": "catalog:cli"
   },
-  "packageManager": "pnpm@9.6.0"
+  "packageManager": "pnpm@9.15.9"
 }
