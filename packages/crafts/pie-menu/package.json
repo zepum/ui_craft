@@ -34,7 +34,7 @@
     "@types/victor": "^1.1.5",
     "gsap": "catalog:animation",
     "jotai": "^2.19.0",
-    "motion": "^12.38.0",
+    "motion": "^12.43.0",
     "react-hotkeys-hook": "^5.2.4",
     "rxjs": "catalog:utils",
     "victor": "^1.1.0"

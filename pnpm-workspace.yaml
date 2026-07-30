@@ -22,7 +22,7 @@ catalogs:
   dev:
     '@ladle/react': ^5.0.2
   animation:
-    gsap: ^3.12.7
+    gsap: ^3.15.0
     '@gsap/react': ^2.1.2
   css:
     lightningcss: ^1.30.1
