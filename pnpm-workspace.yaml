@@ -20,7 +20,7 @@ catalogs:
   lint:
     '@biomejs/biome': ^1.9.4
   dev:
-    '@ladle/react': ^5.0.2
+    '@ladle/react': ^5.1.1
   animation:
     gsap: ^3.12.7
     '@gsap/react': ^2.1.2
