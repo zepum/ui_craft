@@ -1,14 +1,25 @@
-import type { Story } from '@ladle/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useEffect, useState } from 'react';
 import { Trivision } from '../src/Trivision';
 import styles from './Trivision.stories.module.css';
-import { useEffect, useState } from 'react';
 
-export const Default: Story = () => {
+const meta = {
+  title: 'Crafts/Trivision',
+  component: Trivision,
+} satisfies Meta<typeof Trivision>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+const DefaultStory = () => {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       setCount(count => count + 1);
     }, 2000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
@@ -22,4 +33,15 @@ export const Default: Story = () => {
       />
     </div>
   );
+};
+
+export const Default: Story = {
+  args: {
+    count: 0,
+    segmentCount: 50,
+    images: ['/jungle.jpg', '/tokyoNight.jpg', '/waterfall.jpg'],
+    duration: 1,
+    gap: 1,
+  },
+  render: () => <DefaultStory />,
 };

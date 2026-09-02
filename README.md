@@ -55,7 +55,7 @@ pnpm craft
 ```bash
 pnpm dev
 ```
-이 명령어는 [Ladle](https://ladle.dev/)을 사용하여 개발 서버를 시작해요. Ladle은 Storybook과 유사한 컴포넌트 개발 환경을 제공합니다.
+이 명령어는 [Storybook](https://storybook.js.org/) 개발 서버를 `61000` 포트에서 시작해요.
 
 ### 핵심 패키지 빌드
 
@@ -92,14 +92,14 @@ pnpm clean:hard
 - **TypeScript** - 타입 안전성
 - **pnpm** - 패키지 관리자
 - **Turborepo** - 모노레포 빌드 시스템
-- **Ladle** - 컴포넌트 개발 및 문서화
+- **Storybook + Vite** - 컴포넌트 개발 및 문서화
 - **Biome** - 코드 포매팅
 - **tsup** - TypeScript 빌드 도구
 
 ## 기여 가이드라인
 
 1. 새로운 기능이나 버그 수정을 위한 브랜치를 생성해주세요
-2. 변경사항이 잘 동작하는지 Ladle을 통해 테스트해보세요
+2. 변경사항이 잘 동작하는지 Storybook을 통해 테스트해보세요
 3. 풀 리퀘스트를 생성해주세요
 
 ## 모범 사례

@@ -1,7 +1,7 @@
-import { createContext, type ReactNode, useContext, useEffect, useMemo, useState } from 'react';
-import { usePane } from 'src/usePane';
-import type { BindingParams, Pane as PaneType, FolderApi, FolderParams, ButtonParams } from 'tweakpane';
+import { type ReactNode, createContext, useContext, useEffect, useMemo, useState } from 'react';
+import type { BindingParams, ButtonParams, FolderApi, FolderParams, Pane as PaneType } from 'tweakpane';
 import type { PaneConfig } from 'tweakpane/dist/types/pane/pane-config';
+import { usePane } from '../usePane';
 
 const PaneContext = createContext<{
   pane: PaneType | null;

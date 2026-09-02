@@ -1,7 +1,7 @@
-import type { Story } from '@ladle/react';
-import { type Shape, Svg } from '../src/SVG';
-import { Binding, Pane } from '../../../core/debug/src';
+import { Binding, Pane } from '@core/debug';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { type Shape, Svg } from '../src/SVG';
 
 const DEFAULT_CONFIG = {
   stroke: '#000',
@@ -10,7 +10,16 @@ const DEFAULT_CONFIG = {
   animate: false,
 };
 
-export const Default: Story = () => {
+const meta = {
+  title: 'Crafts/Svg',
+  component: Svg,
+} satisfies Meta<typeof Svg>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+const DefaultStory = () => {
   const [devValue, setDevValue] = useState(DEFAULT_CONFIG);
   return (
     <div style={{ width: '60%', height: '60%' }}>
@@ -65,4 +74,14 @@ export const Default: Story = () => {
       />
     </div>
   );
+};
+
+export const Default: Story = {
+  args: {
+    shape: 'circle',
+    stroke: DEFAULT_CONFIG.stroke,
+    gradient: DEFAULT_CONFIG.gradient,
+    animate: DEFAULT_CONFIG.animate,
+  },
+  render: () => <DefaultStory />,
 };

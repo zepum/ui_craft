@@ -1,5 +1,5 @@
 {
-  "name": "@craft/pie-menu",
+  "name": "@craft/highlight",
   "version": "1.0.0",
   "description": "",
   "files": ["dist"],
@@ -21,6 +21,12 @@
     "react": "catalog:react19",
     "react-dom": "catalog:react19"
   },
+  "dependencies": {
+    "effect": "catalog:effect",
+    "gsap": "catalog:animation",
+    "lucide-react": "catalog:icons",
+    "motion": "catalog:animation"
+  },
   "devDependencies": {
     "@core/debug": "workspace:*",
     "@types/react": "catalog:react19",
@@ -28,15 +34,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@gsap/react": "catalog:animation",
-    "@types/victor": "^1.1.5",
-    "gsap": "catalog:animation",
-    "jotai": "catalog:state",
-    "motion": "catalog:animation",
-    "react-hotkeys-hook": "^5.2.4",
-    "rxjs": "catalog:utils",
-    "victor": "^1.1.0"
-  }
+  "license": "ISC"
 }

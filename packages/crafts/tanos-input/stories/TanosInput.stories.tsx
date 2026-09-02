@@ -1,11 +1,18 @@
-import type { Story } from '@ladle/react';
-import { TanosInput, TanosProvider, TanosTrigger } from '../src/TanosInput';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { TanosInput, TanosProvider, TanosTrigger } from '../src/TanosInput';
 import './TanosInput.stories.css';
 
-const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const meta = {
+  title: 'Crafts/TanosInput',
+  component: TanosInput,
+} satisfies Meta<typeof TanosInput>;
 
-export const DEFAULT: Story = () => {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+const DefaultStory = () => {
   const [value, setValue] = useState('tanos_effect@avenue.com');
 
   return (
@@ -20,4 +27,8 @@ export const DEFAULT: Story = () => {
       </div>
     </TanosProvider>
   );
+};
+
+export const Default: Story = {
+  render: () => <DefaultStory />,
 };

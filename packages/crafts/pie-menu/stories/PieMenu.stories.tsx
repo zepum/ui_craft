@@ -1,6 +1,17 @@
-import type { Story } from '@ladle/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { PieMenu } from '../src/PieMenu';
 
-export const Default: Story = () => {
-  return <PieMenu onSelect={() => {}} />;
+const meta = {
+  title: 'Crafts/PieMenu',
+  component: PieMenu,
+} satisfies Meta<typeof PieMenu>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    onSelect: () => {},
+  },
 };

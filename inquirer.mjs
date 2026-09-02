@@ -18,9 +18,8 @@ const getConfig = slug => {
   const tsconfig = {
     extends: '../../../tsconfig.json',
     compilerOptions: {
-      baseUrl: '.',
-      module: 'NodeNext',
-      moduleResolution: 'node16',
+      module: 'ESNext',
+      moduleResolution: 'bundler',
     },
     include: ['src', 'index.ts', '../../../css-module.d.ts', 'stories'],
   };
@@ -66,6 +65,12 @@ export default defineConfig((options) => ({
       react: 'catalog:react19',
       'react-dom': 'catalog:react19',
     },
+    dependencies: {
+      gsap: 'catalog:animation',
+      jotai: 'catalog:state',
+      'lucide-react': 'catalog:icons',
+      motion: 'catalog:animation',
+    },
     devDependencies: {
       '@core/debug': 'workspace:*',
       '@types/react': 'catalog:react19',
@@ -76,10 +81,18 @@ export default defineConfig((options) => ({
     license: 'ISC',
   };
   // *.stories.tsx
-  const story = `import type { Story } from '@ladle/react';
+  const story = `import type { Meta, StoryObj } from '@storybook/react-vite';
 
-export const Default: Story = () => {
-  return <h1>Hello</h1>;
+const meta = {
+  title: 'Crafts/${changeToPascal(slug)}',
+} satisfies Meta;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  render: () => <h1>Hello</h1>,
 };`;
 
   const cssModule = `@import url("../../../core/theme/color.css");

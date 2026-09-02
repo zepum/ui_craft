@@ -1,9 +1,9 @@
-import { SEGMENT_CLASSNAME, TrivisionSegment } from './TrivisionSegment';
-import styles from './Trivision.module.css';
-import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { type RefObject, useEffect, useRef, useState } from 'react';
 import { useResizeObserver } from 'usehooks-ts';
+import styles from './Trivision.module.css';
+import { SEGMENT_CLASSNAME, TrivisionSegment } from './TrivisionSegment';
 
 gsap.registerPlugin(useGSAP);
 
@@ -40,7 +40,7 @@ export const Trivision = ({ count, segmentCount, images, duration, gap = 3 }: Tr
   const [show, setShow] = useState(false);
 
   const { width } = useResizeObserver({
-    ref: containerRef,
+    ref: containerRef as RefObject<HTMLDivElement>,
   });
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export const Trivision = ({ count, segmentCount, images, duration, gap = 3 }: Tr
       .catch(() => {
         setShow(true);
       });
-  }, []);
+  }, [images]);
 
   useGSAP(
     () => {

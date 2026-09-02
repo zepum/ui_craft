@@ -1,8 +1,7 @@
-import type { Story } from '@ladle/react';
-import type { Tint } from 'src/MeshGradient';
-import { MeshGradient, MeshGradientProps } from 'src/MeshGradient';
-import { Binding, Pane } from '../../../core/debug/src';
+import { Binding, Pane } from '@core/debug';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { MeshGradient, type Tint } from '../src/MeshGradient';
 
 const DEFAULT_CONFIG = {
   color0: { r: 33, g: 255, b: 147, a: 1.0 },
@@ -12,7 +11,16 @@ const DEFAULT_CONFIG = {
   center: { r: 255, g: 0, b: 0, a: 1.0 },
 };
 
-export const Default: Story = () => {
+const meta = {
+  title: 'Crafts/MeshGradient',
+  component: MeshGradient,
+} satisfies Meta<typeof MeshGradient>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+const DefaultStory = () => {
   const [devValue, setDevValue] = useState(DEFAULT_CONFIG);
 
   return (
@@ -68,4 +76,9 @@ export const Default: Story = () => {
       />
     </div>
   );
+};
+
+export const Default: Story = {
+  args: DEFAULT_CONFIG,
+  render: () => <DefaultStory />,
 };

@@ -1,8 +1,8 @@
-import type { Story } from '@ladle/react';
-import { CHAR_SET, type Shape, type Theme, VestaBoard } from '../src/VestaBoard';
-import { useState } from 'react';
 import { Binding, Folder, FolderBinding, Pane, PaneButton } from '@core/debug';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { pick } from 'es-toolkit';
+import { useState } from 'react';
+import { CHAR_SET, type Shape, type Theme, VestaBoard } from '../src/VestaBoard';
 
 type Line = {
   id: string;
@@ -51,7 +51,16 @@ const INITIAL_VALUE = {
   theme: 'default',
 };
 
-export const DEFAULT: Story = () => {
+const meta = {
+  title: 'Crafts/VestaBoard',
+  component: VestaBoard,
+} satisfies Meta<typeof VestaBoard>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+const DefaultStory = () => {
   const [devValue, setDevValue] = useState(INITIAL_VALUE);
 
   return (
@@ -170,6 +179,16 @@ export const DEFAULT: Story = () => {
       />
     </>
   );
+};
+
+export const Default: Story = {
+  args: {
+    columnCount: INITIAL_VALUE.columnCount,
+    lines: INITIAL_VALUE.lines,
+    blockShape: 'default',
+    theme: 'default',
+  },
+  render: () => <DefaultStory />,
 };
 
 const updateLine = (lines: Line[], id: string, key: string, value: unknown) => {
