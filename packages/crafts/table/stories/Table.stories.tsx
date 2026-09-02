@@ -1,4 +1,4 @@
-import type { Story } from '@ladle/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { PairedInput, Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '../src';
 import styles from './Table.stories.module.css';
@@ -86,7 +86,16 @@ const parseAliasPaste = (text: string): AliasPreview => {
   );
 };
 
-export const Default: Story = () => {
+const meta = {
+  title: 'Crafts/Table',
+  component: Table,
+} satisfies Meta<typeof Table>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+const DefaultStory = () => {
   const [aliases, setAliases] = useState(initialAliases);
   const [preview, setPreview] = useState<AliasPreview | null>(null);
 
@@ -226,4 +235,8 @@ export const Default: Story = () => {
       </TableFooter>
     </Table>
   );
+};
+
+export const Default: Story = {
+  render: () => <DefaultStory />,
 };

@@ -1,4 +1,8 @@
 {
   "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler"
+  },
   "include": ["src", "index.ts", "../../../css-module.d.ts", "stories"]
 }

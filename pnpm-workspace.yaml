@@ -20,10 +20,21 @@ catalogs:
   lint:
     '@biomejs/biome': ^1.9.4
   dev:
-    '@ladle/react': ^5.0.2
+    '@storybook/addon-a11y': ^10.5.10
+    '@storybook/react-vite': ^10.5.10
+    esbuild: ^0.28.2
+    storybook: ^10.5.10
+    vite: ^8.2.2
   animation:
-    gsap: ^3.12.7
+    gsap: ^3.15.0
     '@gsap/react': ^2.1.2
+    motion: ^13.1.1
+  effect:
+    effect: ^4.0.0-rc.112
+  icons:
+    lucide-react: ^1.39.0
+  state:
+    jotai: ^2.20.3
   css:
     lightningcss: ^1.30.1
     tailwindcss: ^4.1.7
