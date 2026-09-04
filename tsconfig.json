@@ -15,7 +15,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true,
     "noImplicitAny": false
   },
   "include": ["packages", "css-module.d.ts"],
