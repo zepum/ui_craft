@@ -55,25 +55,25 @@ type MenuItem = {
   type?: 'toggle';
 };
 
-const MENU_GROUPS: readonly (readonly MenuItem[])[] = [
+export const MENU_GROUPS: readonly (readonly MenuItem[])[] = [
   [
-    { id: 'new-design', label: '새 디자인 만들기', icon: FilePlus2 },
-    { id: 'duplicate', label: '사본 만들기', icon: Copy },
-    { id: 'move-to-folder', label: '폴더로 이동', icon: FolderInput },
-    { id: 'version-history', label: '버전 기록', icon: History },
+    { id: 'new-design', label: 'New design', icon: FilePlus2 },
+    { id: 'duplicate', label: 'Make a copy', icon: Copy },
+    { id: 'move-to-folder', label: 'Move to folder', icon: FolderInput },
+    { id: 'version-history', label: 'Version history', icon: History },
   ],
-  [{ id: 'change-mode', label: '모드 변경', icon: PanelsTopLeft }],
+  [{ id: 'change-mode', label: 'Change mode', icon: PanelsTopLeft }],
   [
-    { id: 'find-and-replace', label: '텍스트 찾기 및 바꾸기', icon: Search, shortcut: '⌘F' },
-    { id: 'guide-settings', label: '안내선 설정', icon: Ruler },
-    { id: 'page-numbers', label: '페이지 번호', icon: Hash },
-    { id: 'layer-order', label: '레이어 순서', icon: Layers3, shortcut: '⌘⇧Y', type: 'toggle' },
+    { id: 'find-and-replace', label: 'Find and replace', icon: Search, shortcut: '⌘F' },
+    { id: 'guide-settings', label: 'Guides', icon: Ruler },
+    { id: 'page-numbers', label: 'Page numbers', icon: Hash },
+    { id: 'layer-order', label: 'Layer order', icon: Layers3, shortcut: '⌘⇧Y', type: 'toggle' },
   ],
   [
-    { id: 'language', label: '언어', icon: Globe2 },
-    { id: 'dark-mode', label: '다크 모드', icon: Moon, type: 'toggle' },
-    { id: 'help', label: '도움말', icon: CircleHelp },
-    { id: 'developer-mode', label: '개발 모드', icon: Code2 },
+    { id: 'language', label: 'Language', icon: Globe2 },
+    { id: 'dark-mode', label: 'Dark mode', icon: Moon, type: 'toggle' },
+    { id: 'help', label: 'Help', icon: CircleHelp },
+    { id: 'developer-mode', label: 'Developer mode', icon: Code2 },
   ],
 ];
 
@@ -206,7 +206,7 @@ export const Highlight = ({
         aria-controls={menuId}
         aria-expanded={open}
         aria-haspopup='menu'
-        aria-label={open ? '메뉴 닫기' : '메뉴 열기'}
+        aria-label={open ? 'Close menu' : 'Open menu'}
         className={styles.trigger}
         onClick={() => (open ? closeMenu() : setOpen(true))}
         onKeyDown={event => {
@@ -224,7 +224,7 @@ export const Highlight = ({
       {open ? (
         <div className={styles.popoverFrame}>
           <div
-            aria-label='디자인 메뉴'
+            aria-label='Design menu'
             className={styles.menu}
             id={menuId}
             onKeyDown={handleMenuKeyDown}
@@ -279,7 +279,7 @@ export const Highlight = ({
                     type='button'
                   >
                     <SlidersHorizontal aria-hidden='true' className={styles.itemIcon} size={18} strokeWidth={1.7} />
-                    <span className={styles.itemLabel}>편집 환경 설정</span>
+                    <span className={styles.itemLabel}>Editor settings</span>
                     <ChevronRight aria-hidden='true' className={styles.chevron} size={16} strokeWidth={1.7} />
                   </button>
                 ) : null}
@@ -289,7 +289,7 @@ export const Highlight = ({
 
           {editorSettingsOpen ? (
             <div
-              aria-label='편집 환경 설정'
+              aria-label='Editor settings'
               className={styles.submenu}
               id={submenuId}
               onKeyDown={handleSubmenuKeyDown}
@@ -299,8 +299,8 @@ export const Highlight = ({
               <div className={styles.submenuHeader}>
                 <Settings2 aria-hidden='true' size={18} strokeWidth={1.7} />
                 <div>
-                  <h2 className={styles.submenuTitle}>편집 환경 설정</h2>
-                  <p className={styles.submenuDescription}>디자인 편집 환경을 선택하세요.</p>
+                  <h2 className={styles.submenuTitle}>Editor settings</h2>
+                  <p className={styles.submenuDescription}>Choose a layout.</p>
                 </div>
               </div>
               <div className={styles.layoutOptions}>
@@ -316,7 +316,7 @@ export const Highlight = ({
                   <span aria-hidden='true' className={styles.layoutPreview} data-layout='panel'>
                     <PanelLeft size={24} strokeWidth={1.5} />
                   </span>
-                  <span>패널형</span>
+                  <span>Panel</span>
                 </button>
                 <button
                   aria-checked={editorLayout === 'toolbar'}
@@ -330,7 +330,7 @@ export const Highlight = ({
                   <span aria-hidden='true' className={styles.layoutPreview} data-layout='toolbar'>
                     <PanelTop size={24} strokeWidth={1.5} />
                   </span>
-                  <span>툴바형</span>
+                  <span>Toolbar</span>
                 </button>
               </div>
             </div>

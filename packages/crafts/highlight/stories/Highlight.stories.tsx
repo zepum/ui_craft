@@ -20,8 +20,8 @@ export const Default: Story = {
       </header>
       <section className={styles.workspace}>
         <p className={styles.eyebrow}>Highlight menu</p>
-        <h1 className={styles.title}>작업에 필요한 메뉴를 한곳에서.</h1>
-        <p className={styles.description}>왼쪽 위 메뉴 버튼을 눌러 팝오버와 편집 환경 설정 2뎁스를 확인하세요.</p>
+        <h1 className={styles.title}>Everything you need in one menu.</h1>
+        <p className={styles.description}>Open the top-left menu and try Editor settings.</p>
       </section>
     </main>
   ),
