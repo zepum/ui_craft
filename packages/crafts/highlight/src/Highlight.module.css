@@ -98,7 +98,6 @@
   flex-direction: column;
   gap: 2px;
   border-radius: 8px;
-  background: color-mix(in srgb, var(--highlight-background) 48%, transparent);
 }
 
 .menuItem {
