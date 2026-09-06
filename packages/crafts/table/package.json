@@ -2,7 +2,9 @@
   "name": "@craft/table",
   "version": "1.0.0",
   "description": "",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -18,7 +20,7 @@
     "type": "tsc --emitDeclarationOnly --outDir dist"
   },
   "dependencies": {
-    "@utils": "workspace:*"
+    "@core/utils": "workspace:*"
   },
   "peerDependencies": {
     "react": "catalog:react19",

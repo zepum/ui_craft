@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@import url("../../../../packages/core/theme/color.css");
-@import url("../../../../packages/core/theme/reset.css");
+@import "../../../../packages/core/theme/color.css";
+@import "../../../../packages/core/theme/reset.css";
 
 :root {
   --background: #ffffff;
