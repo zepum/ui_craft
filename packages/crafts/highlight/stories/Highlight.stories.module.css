@@ -1,64 +1,173 @@
 .canvas {
-  width: min(920px, 100%);
-  min-height: 720px;
-  margin: 0;
-  border-radius: 12px;
-  background: #fafafa;
-  color: #171717;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 8%);
-  font-family: Geist, "Geist Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+	width: min(920px, 100%);
+	min-height: 720px;
+	margin: 0;
+	border-radius: 12px;
+	background: #fafafa;
+	color: #171717;
+	box-shadow: 0 0 0 1px rgb(0 0 0 / 8%);
+	font-family: Geist, "Geist Sans", Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
 .toolbar {
-  display: flex;
-  height: 64px;
-  padding: 0 16px;
-  align-items: center;
-  gap: 16px;
-  box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
+	display: flex;
+	height: 64px;
+	padding: 0 16px;
+	align-items: center;
+
+	gap: 16px;
+	box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
 }
 
 .productName {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.32px;
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: -0.32px;
 }
 
 .workspace {
-  max-width: 560px;
-  padding: 96px 48px;
+	max-width: 560px;
+	padding: 96px 48px;
 }
 
 .eyebrow {
-  margin: 0 0 12px;
-  color: #0072f5;
-  font-size: 12px;
-  line-height: 16px;
+	margin: 0 0 12px;
+	color: #0072f5;
+	font-size: 12px;
+	line-height: 16px;
 }
 
 .title {
-  margin: 0 0 16px;
-  font-size: 40px;
-  font-weight: 600;
-  letter-spacing: -1.8px;
-  line-height: 44px;
+	margin: 0 0 16px;
+	font-size: 40px;
+	font-weight: 600;
+	letter-spacing: -1.8px;
+	line-height: 44px;
 }
 
 .description {
-  margin: 0;
-  color: #4d4d4d;
-  font-size: 16px;
-  line-height: 24px;
+	margin: 0;
+	color: #4d4d4d;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.cta {
+	display: inline-flex;
+	margin-top: 24px;
+	padding: 10px 16px;
+	align-items: center;
+	gap: 8px;
+	border: 0;
+	border-radius: 8px;
+	background: #171717;
+	color: #fafafa;
+	font: inherit;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: -0.14px;
+	cursor: pointer;
+	margin-left: auto;
+}
+
+.cta:hover {
+	background: #2f2f2f;
+}
+
+.cta:focus-visible {
+	outline: none;
+	box-shadow:
+		0 0 0 2px #fafafa,
+		0 0 0 4px #0072f5;
+}
+
+.cta svg {
+	flex-shrink: 0;
 }
 
 @media (width <= 760px) {
-  .workspace {
-    padding: 64px 24px;
-  }
+	.workspace {
+		padding: 64px 24px;
+	}
 
-  .title {
-    font-size: 32px;
-    letter-spacing: -1.28px;
-    line-height: 40px;
-  }
+	.title {
+		font-size: 32px;
+		letter-spacing: -1.28px;
+		line-height: 40px;
+	}
+}
+
+.borderButton {
+	--background: light-dark(hsl(0 0% 92%), hsl(0 0% 16%));
+	--border: #000;
+	--accent: light-dark(
+		color-mix(in hsl, var(--background), #000 16%),
+		color-mix(in hsl, var(--background), #fff 16%)
+	);
+
+	width: 120px;
+	height: 34px;
+	cursor: pointer;
+	margin-top: 20px;
+	margin-left: 20px;
+	position: relative;
+	background:
+		linear-gradient(var(--background) 0 100%) padding-box,
+		linear-gradient(
+			light-dark(hsla(0, 0%, 0%, 0.16), hsl(0 0% 100% / 0.16)) 0 100%
+		)
+		border-box;
+	border: 1px solid #0000;
+	transition-property: scale;
+	transition-duration: 120ms;
+
+	border-radius: 6px;
+
+	&:is(:hover, :focus-visible)::before {
+		opacity: 0.26;
+	}
+
+	&:active {
+		scale: 0.98;
+		translate: 0 1px;
+
+		&::after,
+		&::before {
+			opacity: 1;
+			transition: opacity 0s;
+		}
+	}
+
+	&::after,
+	&::before {
+		content: "";
+		position: absolute;
+		inset: -1px;
+		opacity: 0;
+		border-radius: inherit;
+	}
+
+	&::after {
+		z-index: 2;
+		border: 1px solid var(--border, #fafafa);
+		transition: opacity calc(var(--duration, 0.6) * 1s)
+			calc(var(--delay, 0.1) * 1s) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+
+	&::before {
+		z-index: 3;
+		background: var(--accent);
+		transition: opacity 0.16s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+	}
+
+	span {
+		z-index: 4;
+		color: light-dark(#000, color-mix(in hsl, #fff, #0000 10%));
+		padding: 0 1.25rem;
+		height: 100%;
+		display: inline-grid;
+		place-items: center;
+		position: relative;
+	}
 }

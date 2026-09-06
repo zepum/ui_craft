@@ -2,303 +2,313 @@
 @import url("../../../core/theme/reset.css");
 
 .root {
-  --highlight-background: #fafafa;
-  --highlight-surface: #fff;
-  --highlight-hover: #f2f2f2;
-  --highlight-active: #ebebeb;
-  --highlight-text: #171717;
-  --highlight-text-secondary: #4d4d4d;
-  --highlight-text-muted: #8f8f8f;
-  --highlight-line: rgb(0 0 0 / 8%);
-  --highlight-focus: #0072f5;
-  --highlight-focus-gap: #fff;
-  --highlight-shadow-menu: 0 0 0 1px rgb(0 0 0 / 8%), 0 1px 1px rgb(0 0 0 / 2%), 0 4px 8px -4px rgb(0 0 0 / 4%), 0 16px
-    24px -8px rgb(0 0 0 / 8%);
-  position: relative;
-  display: inline-flex;
-  color: var(--highlight-text);
-  font-family: Geist, "Geist Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+	--highlight-background: #fafafa;
+	--highlight-surface: #fff;
+	--highlight-hover: #f2f2f2;
+	--highlight-active: #ebebeb;
+	--highlight-menu-active: #f2f2f2;
+	--highlight-text: #171717;
+	--highlight-text-secondary: #4d4d4d;
+	--highlight-text-muted: #8f8f8f;
+	--highlight-line: rgb(0 0 0 / 8%);
+	--highlight-focus: #0072f5;
+	--highlight-focus-gap: #fff;
+	--highlight-shadow-menu:
+		0 0 0 1px rgb(0 0 0 / 8%), 0 1px 1px rgb(0 0 0 / 2%), 0 4px 8px -4px rgb(
+			0 0 0 /
+			4%
+		), 0 16px
+		24px -8px rgb(0 0 0 / 8%);
+	position: relative;
+	display: inline-flex;
+	color: var(--highlight-text);
+	font-family:
+		Geist, "Geist Sans", Inter, ui-sans-serif, system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .root[data-dark="true"] {
-  --highlight-background: #171717;
-  --highlight-surface: #1f1f1f;
-  --highlight-hover: #2f2f2f;
-  --highlight-active: #383838;
-  --highlight-text: #fafafa;
-  --highlight-text-secondary: #c7c7c7;
-  --highlight-text-muted: #8f8f8f;
-  --highlight-line: rgb(255 255 255 / 10%);
-  --highlight-focus-gap: #171717;
-  --highlight-shadow-menu: 0 0 0 1px rgb(255 255 255 / 10%), 0 2px 4px rgb(0 0 0 / 18%), 0 16px 32px -8px
-    rgb(0 0 0 / 45%);
+	--highlight-background: #171717;
+	--highlight-surface: #1f1f1f;
+	--highlight-hover: #2f2f2f;
+	--highlight-active: #383838;
+	--highlight-menu-active: #2f2f2f;
+	--highlight-text: #fafafa;
+	--highlight-text-secondary: #c7c7c7;
+	--highlight-text-muted: #8f8f8f;
+	--highlight-line: rgb(255 255 255 / 10%);
+	--highlight-focus-gap: #171717;
+	--highlight-shadow-menu:
+		0 0 0 1px rgb(255 255 255 / 10%), 0 2px 4px rgb(0 0 0 / 18%), 0 16px 32px
+		-8px rgb(0 0 0 / 45%);
 }
 
 .trigger {
-  display: inline-grid;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  place-items: center;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--highlight-text-secondary);
-  cursor: pointer;
+	display: inline-grid;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	place-items: center;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	color: var(--highlight-text-secondary);
+	cursor: pointer;
 }
 
 .trigger:hover,
 .trigger[aria-expanded="true"] {
-  background: var(--highlight-hover);
-  color: var(--highlight-text);
+	background: var(--highlight-hover);
+	color: var(--highlight-text);
 }
 
 .trigger:focus-visible,
 .menuItem:focus-visible,
 .layoutOption:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--highlight-focus-gap), 0 0 0 4px var(--highlight-focus);
+	outline: none;
+	box-shadow:
+		0 0 0 2px var(--highlight-focus-gap),
+		0 0 0 4px var(--highlight-focus);
 }
 
 .popoverFrame {
-  position: absolute;
-  z-index: 20;
-  top: calc(100% + 8px);
-  left: 0;
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
+	position: absolute;
+	z-index: 20;
+	top: calc(100% + 8px);
+	left: 0;
+	display: flex;
+	align-items: flex-end;
+	gap: 8px;
 }
 
 .menu,
 .submenu {
-  border-radius: 12px;
-  background: var(--highlight-surface);
-  color: var(--highlight-text);
-  box-shadow: var(--highlight-shadow-menu);
-  transform-origin: top left;
-  animation: popoverIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+	border-radius: 12px;
+	background: var(--highlight-surface);
+	color: var(--highlight-text);
+	box-shadow: var(--highlight-shadow-menu);
+	transform-origin: top left;
+	/* animation: popoverIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.1); */
 }
 
 .menu {
-  display: flex;
-  width: min(360px, calc(100vw - 32px));
-  max-height: min(680px, calc(100vh - 80px));
-  padding: 8px;
-  flex-direction: column;
-  gap: 8px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+	display: flex;
+	width: min(360px, calc(100vw - 32px));
+	max-height: min(680px, calc(100vh - 80px));
+	padding: 8px;
+	flex-direction: column;
+	gap: 8px;
+	overflow-y: auto;
+	overscroll-behavior: contain;
 }
 
 .menuGroup {
-  display: flex;
-  padding: 4px;
-  flex-direction: column;
-  gap: 2px;
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--highlight-background) 48%, transparent);
+	display: flex;
+	padding: 4px;
+	flex-direction: column;
+	gap: 2px;
+	border-radius: 8px;
+	background: color-mix(in srgb, var(--highlight-background) 48%, transparent);
 }
 
 .menuItem {
-  display: grid;
-  width: 100%;
-  min-height: 40px;
-  padding: 8px 12px;
-  grid-template-columns: 20px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 12px;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--highlight-text-secondary);
-  font: inherit;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  text-align: left;
-  cursor: pointer;
+	display: grid;
+	width: 100%;
+	min-height: 40px;
+	padding: 8px 12px;
+	grid-template-columns: 20px minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 12px;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	color: var(--highlight-text-secondary);
+	font: inherit;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: left;
+	cursor: pointer;
 }
 
 .menuItem:hover,
 .menuItem[data-active="true"] {
-  background: var(--highlight-active);
-  color: var(--highlight-text);
+	background: var(--highlight-menu-active);
+	color: var(--highlight-text);
 }
 
 .itemIcon {
-  justify-self: center;
-  color: currentcolor;
+	justify-self: center;
+	color: currentcolor;
 }
 
 .itemLabel {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .shortcut {
-  color: var(--highlight-text-muted);
-  font-size: 12px;
+	color: var(--highlight-text-muted);
+	font-size: 12px;
 }
 
 .itemMeta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
 }
 
 .chevron {
-  color: var(--highlight-text-muted);
+	color: var(--highlight-text-muted);
 }
 
 .switch {
-  position: relative;
-  width: 32px;
-  height: 20px;
-  border-radius: 9999px;
-  background: var(--highlight-active);
-  box-shadow: inset 0 0 0 1px var(--highlight-line);
+	position: relative;
+	width: 32px;
+	height: 20px;
+	border-radius: 9999px;
+	background: var(--highlight-active);
+	box-shadow: inset 0 0 0 1px var(--highlight-line);
 }
 
 .switch[data-checked="true"] {
-  background: var(--highlight-text);
+	background: var(--highlight-text);
 }
 
 .switchThumb {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--highlight-surface);
-  box-shadow: 0 1px 2px rgb(0 0 0 / 18%);
-  transition: translate 0.16s ease;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: var(--highlight-surface);
+	box-shadow: 0 1px 2px rgb(0 0 0 / 18%);
+	transition: translate 0.16s ease;
 }
 
 .switch[data-checked="true"] .switchThumb {
-  translate: 12px 0;
+	translate: 12px 0;
 }
 
 .submenu {
-  width: min(324px, calc(100vw - 32px));
-  padding: 20px;
-  transform-origin: bottom left;
+	width: min(324px, calc(100vw - 32px));
+	padding: 20px;
+	transform-origin: bottom left;
 }
 
 .submenuHeader {
-  display: grid;
-  margin-bottom: 20px;
-  grid-template-columns: 20px minmax(0, 1fr);
-  align-items: start;
-  gap: 12px;
+	display: grid;
+	margin-bottom: 20px;
+	grid-template-columns: 20px minmax(0, 1fr);
+	align-items: start;
+	gap: 12px;
 }
 
 .submenuTitle {
-  margin: 0 0 4px;
-  color: var(--highlight-text);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.28px;
-  line-height: 20px;
+	margin: 0 0 4px;
+	color: var(--highlight-text);
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: -0.28px;
+	line-height: 20px;
 }
 
 .submenuDescription {
-  margin: 0;
-  color: var(--highlight-text-muted);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
+	margin: 0;
+	color: var(--highlight-text-muted);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
 }
 
 .layoutOptions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
 }
 
 .layoutOption {
-  display: flex;
-  min-width: 0;
-  padding: 0;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  border: 0;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--highlight-text-secondary);
-  font: inherit;
-  font-size: 12px;
-  line-height: 16px;
-  cursor: pointer;
+	display: flex;
+	min-width: 0;
+	padding: 0;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	border: 0;
+	border-radius: 8px;
+	background: transparent;
+	color: var(--highlight-text-secondary);
+	font: inherit;
+	font-size: 12px;
+	line-height: 16px;
+	cursor: pointer;
 }
 
 .layoutPreview {
-  display: grid;
-  width: 100%;
-  aspect-ratio: 1.35;
-  place-items: center;
-  border-radius: 8px;
-  background: var(--highlight-background);
-  color: var(--highlight-text-muted);
-  box-shadow: 0 0 0 1px var(--highlight-line);
+	display: grid;
+	width: 100%;
+	aspect-ratio: 1.35;
+	place-items: center;
+	border-radius: 8px;
+	background: var(--highlight-background);
+	color: var(--highlight-text-muted);
+	box-shadow: 0 0 0 1px var(--highlight-line);
 }
 
 .layoutOption:hover .layoutPreview {
-  background: var(--highlight-hover);
-  color: var(--highlight-text-secondary);
+	background: var(--highlight-hover);
+	color: var(--highlight-text-secondary);
 }
 
 .layoutOption[data-selected="true"] {
-  color: var(--highlight-text);
-  font-weight: 500;
+	color: var(--highlight-text);
+	font-weight: 500;
 }
 
 .layoutOption[data-selected="true"] .layoutPreview {
-  color: var(--highlight-focus);
-  box-shadow: 0 0 0 2px var(--highlight-focus);
+	color: var(--highlight-focus);
+	box-shadow: 0 0 0 2px var(--highlight-focus);
 }
 
 @keyframes popoverIn {
-  from {
-    opacity: 0;
-    scale: 0.96;
-  }
+	from {
+		opacity: 0;
+		scale: 0.96;
+	}
 
-  to {
-    opacity: 1;
-    scale: 1;
-  }
+	to {
+		opacity: 1;
+		scale: 1;
+	}
 }
 
 @media (width <= 760px) {
-  .popoverFrame {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+	.popoverFrame {
+		align-items: flex-start;
+		flex-direction: column;
+	}
 
-  .menu {
-    max-height: min(560px, calc(100vh - 80px));
-  }
+	.menu {
+		max-height: min(560px, calc(100vh - 80px));
+	}
 
-  .submenu {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+	.submenu {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .menu,
-  .submenu {
-    animation: none;
-  }
+	.menu,
+	.submenu {
+		animation: none;
+	}
 
-  .switchThumb {
-    transition: none;
-  }
+	.switchThumb {
+		transition: none;
+	}
 }
