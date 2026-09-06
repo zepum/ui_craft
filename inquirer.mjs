@@ -20,6 +20,7 @@ const getConfig = slug => {
     compilerOptions: {
       module: 'ESNext',
       moduleResolution: 'bundler',
+      rootDir: '.',
     },
     include: ['src', 'index.ts', '../../../css-module.d.ts', 'stories'],
   };
@@ -49,7 +50,7 @@ export default defineConfig((options) => ({
     files: ['dist'],
     exports: {
       '.': {
-        types: './dist/index.d.ts',
+        types: './dist/index.d.mts',
         default: './dist/index.mjs',
       },
     },

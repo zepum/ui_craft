@@ -1,4 +1,7 @@
 {
   "extends": "../../../../tsconfig.json",
-  "include": ["*.ts", "*.tsx", "../src", "../../../../css-module.d.ts"]
+  "include": ["*.ts", "*.tsx", "../src", "../../../../css-module.d.ts"],
+  "compilerOptions": {
+    "rootDir": ".."
+  }
 }
