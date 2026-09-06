@@ -1,8 +1,10 @@
 {
-  "name": "@utils",
+  "name": "@core/utils",
   "version": "1.0.0",
   "description": "",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

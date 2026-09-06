@@ -1,4 +1,4 @@
-import { cn } from '@utils';
+import { cn } from '@core/utils';
 import { type HTMLAttributes, type TdHTMLAttributes, type ThHTMLAttributes, forwardRef } from 'react';
 import styles from './Table.module.css';
 

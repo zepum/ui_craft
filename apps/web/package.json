@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "biome lint src"
   },
   "dependencies": {
     "@craft/marquee": "workspace:*",
@@ -16,17 +16,17 @@
     "@craft/trivision": "workspace:*",
     "@craft/vesta-board": "workspace:*",
     "@craft/viewtransition": "workspace:*",
-    "@mdx-js/loader": "^3.1.0",
-    "@mdx-js/react": "^3.1.0",
-    "@next/mdx": "15.3.9",
-    "next": "15.3.9",
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "16.3.4",
+    "next": "16.3.4",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
-    "zod": "^3.25.28"
+    "zod": "^4.5.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "catalog:css",
-    "@types/mdx": "^2.0.13",
+    "@types/mdx": "^2.0.14",
     "@types/node": "catalog:types",
     "@types/react": "catalog:react19",
     "@types/react-dom": "catalog:react19",

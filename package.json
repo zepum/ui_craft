@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "craft": "node inquirer.mjs && pnpm i",
-    "predev": "pnpm --filter @core/debug build && pnpm --filter @utils build",
+    "predev": "pnpm --filter @core/debug build && pnpm --filter @core/utils build",
     "dev": "storybook dev -p 61000",
     "dev:web": "turbo run watch --concurrency=20",
     "build": "turbo run build",
@@ -34,7 +34,11 @@
     "turbo": "catalog:cli",
     "typescript": "catalog:types",
     "vite": "catalog:dev",
-    "inquirer": "catalog:cli"
+    "inquirer": "catalog:cli",
+    "@types/node": "catalog:types"
   },
-  "packageManager": "pnpm@9.6.0"
+  "packageManager": "pnpm@12.3.4",
+  "engines": {
+    "node": ">=22.13.0"
+  }
 }

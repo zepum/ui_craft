@@ -18,8 +18,13 @@ ui_craft/
 
 ### 사전 요구사항
 
-- [Node.js](https://nodejs.org/) (LTS 버전 권장해요)
-- [pnpm](https://pnpm.io/) v9.6.0 이상
+- [Node.js](https://nodejs.org/) 22.13.0 이상 (Node 22 LTS에서 검증)
+- [pnpm](https://pnpm.io/) v12.3.4 (`packageManager`에 고정)
+
+`nvm use`로 Node 22를 선택한 뒤 `corepack enable`로 pnpm을 활성화하세요.
+의존성은 루트의 `pnpm-workspace.yaml`과 `pnpm-lock.yaml`에서 통합 관리합니다.
+TypeScript는 `tsup`의 컴파일러 API 호환성을 위해 6.x를 사용합니다.
+루트의 `ignoreDeprecations: "6.0"`은 `tsup`이 선언 파일 생성 중 내부적으로 넣는 `baseUrl` 옵션을 위한 호환 설정입니다.
 
 ### 설정 단계
 

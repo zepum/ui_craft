@@ -2,10 +2,12 @@
   "name": "@craft/pie-menu",
   "version": "1.0.0",
   "description": "",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/index.d.mts",
       "default": "./dist/index.mjs"
     }
   },
@@ -35,7 +37,7 @@
     "gsap": "catalog:animation",
     "jotai": "catalog:state",
     "motion": "catalog:animation",
-    "react-hotkeys-hook": "^5.2.4",
+    "react-hotkeys-hook": "^5.3.3",
     "rxjs": "catalog:utils",
     "victor": "^1.1.0"
   }
